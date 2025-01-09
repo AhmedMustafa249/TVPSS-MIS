@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.tvpssmis4.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
