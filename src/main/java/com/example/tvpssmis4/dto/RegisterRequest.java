@@ -1,19 +1,9 @@
-package com.example.tvpssmis4.model;
+package com.example.tvpssmis4.dto;
 
-import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
-import lombok.Data;
 
-@Data
-@Entity
-@Table(name = "app_users") // Use a non-reserved name like "app_user"
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public class RegisterRequest {
     @NotEmpty
     private String username;
 
@@ -27,15 +17,10 @@ public class User {
     @NotEmpty
     private String password;
 
-    // Getters and setters
-    public Long getId() {
-        return id;
-    }
+    @NotEmpty
+    private String confirmPassword;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
+    // Getters and Setters
     public String getUsername() {
         return username;
     }
@@ -66,5 +51,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 }
