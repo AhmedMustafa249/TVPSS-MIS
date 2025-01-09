@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter School Information</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<aside class="sidebar">
+    <div class="logo">
+        <img src="TVPSS Logo.png" alt="Logo" class="logo-img">
+        <span>TVPSS MIS</span>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li class="active"><a href="#">Dashboard</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="user-info">
+        <img src="pfp.webp" alt="Profile Picture" class="profile-pic">
+        <div>
+            <p>Danial Dan</p>
+            <p>danial@moe.gov.my</p>
+        </div>
+    </div>
+</aside>
+<div class="main-content">
+    <h1>Enter School Information:</h1>
+    <p class="note">Required inputs have label: <span class="required">*</span></p>
+    <form class="school-form">
+        <div class="form-container">
+            <div class="form-left">
+                <div class="form-group">
+                    <label for="school-name">School Name<span class="required">*</span></label>
+                    <input type="text" id="school-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address<span class="required">*</span></label>
+                    <input type="text" id="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="brand-name">Brand Name</label>
+                    <input type="text" id="brand-name">
+                </div>
+                <div class="form-group">
+                    <label for="youtube-link">YouTube Channel Link</label>
+                    <input type="url" id="youtube-link">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email<span class="required">*</span></label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact">Contact Information<span class="required">*</span></label>
+                    <input type="text" id="contact" required>
+                </div>
+                <div class="form-group">
+                    <label for="school-code">School Code<span class="required">*</span></label>
+                    <input type="text" id="school-code" required>
+                </div>
+                <div class="form-group">
+                    <label for="person-in-charge">Person In-Charge<span class="required">*</span></label>
+                    <input type="text" id="person-in-charge" required>
+                </div>
+            </div>
+            <div class="form-right">
+                <div class = "checkboxes">
+                    <label class="checkbox-container">
+                        <input type="checkbox" name="in_school_recording" />
+                        <span>In-School Recording</span>
+                    </label>
+                    <label class="checkbox-container">
+                        <input type="checkbox" name="outside_recording" />
+                        <span>Outside Recording</span>
+                    </label>
+                    <label class="checkbox-container">
+                        <input type="checkbox" name="agency_collaboration" />
+                        <span>Agency Collaboration</span>
+                    </label>
+                    <label class="checkbox-container">
+                        <input type="checkbox" name="green_screen" />
+                        <span>Green Screen(s)</span>
+                    </label>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="studio-level">Studio Level</label>
+                    <select id="studio-level">
+                        <option value="" disabled selected>Select Studio Level</option>
+                        <option value="basic">Basic</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-actions">
+            <div class="left-actions">
+                <button type="submit" class="confirm-btn">Confirm</button>
+                <button type="button" class="cancel-btn">Cancel</button>
+            </div>
+            <div class="right-actions">
+                <button type="button" class="upload-logo-btn">+ Upload Logo</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
