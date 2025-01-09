@@ -13,7 +13,7 @@ h1 {
 
 .sidebar {
     width: 250px;
-    background: url("images/sidebar-bg.png") no-repeat center center;
+    background: url('./images/sidebar-bg.png') no-repeat center center;
     background-size: cover;
     color: #fff;
     display: flex;

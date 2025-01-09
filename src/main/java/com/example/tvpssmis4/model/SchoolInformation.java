@@ -20,6 +20,7 @@ public class SchoolInformation {
     private String contactInformation;
     private String schoolCode;
     private String personInCharge;
+    private String studioLevel;
 
     private boolean inSchoolRecording;
     private boolean outsideRecording;
@@ -27,6 +28,7 @@ public class SchoolInformation {
     private boolean greenScreen;
     private boolean verified;
 
+    private int version = 0;
     // Getters and Setters
     public Long getId() {
         return id;
@@ -99,6 +101,14 @@ public class SchoolInformation {
     public void setPersonInCharge(String personInCharge) {
         this.personInCharge = personInCharge;
 }
+    public String getStudioLevel() {
+        return studioLevel;
+    }
+    public void setStudioLevel(String studioLevel) {
+        this.studioLevel = studioLevel;
+    }
+
+
 
     public boolean isInSchoolRecording() {
         return inSchoolRecording;
@@ -139,4 +149,22 @@ public class SchoolInformation {
     public void setVerified(boolean verified) {
         this.verified = verified;
     }
+
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
+    // Method to update version dynamically
+    public void updateVersion() {
+        version = 0; // Reset version to 0
+        if (inSchoolRecording) version++;
+        if (outsideRecording) version++;
+        if (agencyCollaboration) version++;
+        if (greenScreen) version++;
+    }
 }
+
