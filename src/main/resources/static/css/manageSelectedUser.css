@@ -1,0 +1,201 @@
+/* General Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    background-color: #F2F2F2;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 250px;
+    background: url('/static/') no-repeat center center; /* Sidebar background image */
+    background-size: cover; /* Ensures the image covers the entire sidebar */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align contents closer to the top */
+    padding: 20px;
+    position: relative; /* For potential overlay adjustments */
+}
+
+/* .sidebar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px; 
+    text-align: center;
+    margin-bottom: 10px; 
+} */
+
+.sidebar .logo {
+    display: flex; /* Flexbox for horizontal alignment */
+    align-items: center; /* Vertically center the content */
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+    margin-bottom: 10px;
+    gap: 10px; /* Space between logo and text */
+}
+
+.sidebar .logo .logo-img {
+    width: 84px; /* Adjust logo size as needed */
+    height: 84px;
+    object-fit: contain; /* Ensures the logo maintains its aspect ratio */
+}
+
+  
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Ensure no extra space around the nav */
+}
+  
+.sidebar nav ul li {
+    padding: 10px 15px; /* Reduced padding for compact layout */
+    margin-bottom: 5px; /* Space between items */
+}
+  
+.sidebar nav ul li.active,
+.sidebar nav ul li:hover {
+    background-color: #4256D0;
+}
+  
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+}
+  
+.sidebar .user-info {
+    display: flex;
+    align-items: center;
+    /*padding: 10px; /* Reduced padding */
+    margin-top: auto; /* Anchors to the bottom of the sidebar */
+}
+  
+.sidebar .user-info .profile-pic {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+/* Main Content Styles */
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+.back-button {
+    text-decoration: none;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.profile-container {
+    background: #FFFFFF;
+    padding: 40px;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-avatar {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-avatar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #E5E5E5;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+form input {
+    padding: 10px;
+    border: 1px solid #E5E5E5;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-family: 'Inter', sans-serif; 
+    font-size: 14px;
+    width: 100%;
+}
+
+/* Button container for vertical stacking */
+.button-container {
+    margin-top: 20px; /* Adds spacing above the button container */
+    display: flex;
+    flex-direction: column; /* Stacks the buttons vertically */
+    gap: 10px; /* Adds vertical space between the buttons */
+    align-items: center; /* Centers the buttons horizontally */
+}
+
+/* Optional: Button-specific styles */
+.update-button, .deactivate-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%; /* Makes buttons stretch to full width if needed */
+    max-width: 400px; /* Limits the maximum width */
+    text-align: center;
+}
+
+.update-button {
+    background-color: #000;
+    color: #fff;
+}
+
+.update-button:hover {
+    background-color: #0056b3;
+}
+
+.deactivate-button {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.deactivate-button:hover {
+    background-color: #a71d2a;
+}
+
+
+/* Role Indicator */
+.role-indicator {
+    position: absolute;
+    bottom: 20px; /* Keep it 20px from the bottom */
+    left: 58%;
+    transform: translateX(-50%);
+    background-color: #f1f1f1;
+    color: #333;
+    padding: 8px 15px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  

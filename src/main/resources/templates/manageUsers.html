@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Users</title>
+  <link rel="stylesheet" href="manageUsersStyles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="../static/css/images/TVPSS-Logo.png" alt="Logo" class="logo-img"> <!-- Replace 'logo.png' with your logo file path -->
+            <span>TVPSS MIS</span>
+          </div>
+      <nav>
+        <ul>
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="manageUserProfile.html">Profile</a></li>
+          <li><a href="#">Search School</a></li>
+          <li><a href="validateRegistration.html"></a>Validate User Registrations</a></li>
+          <li class="active"><a href="manageUsers.html">Manage Users</a></li>
+          <li><a href="#">Settings</a></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+      </nav>
+      <div class="user-info">
+        <img src="Profile.png" alt="Profile Picture" class="profile-pic">
+        <div>
+          <p>Danial Dan</p>
+          <p>danial@moe.gov.my</p>
+        </div>
+      </div>
+    </aside>
+    <main class="content">
+      <h1>Manage Users</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>UserID</th>
+            <th>Username</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>U001</td>
+            <td>danialdan</td>
+            <td>
+              <button class="btn view"><a href="manageSelectedUser.html" style="color: white; ">View</a></button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>U002</td>
+            <td>zairi</td>
+            <td>
+              <button class="btn view">View</button>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>U003</td>
+            <td>auninajwa</td>
+            <td>
+              <button class="btn view">View</button>
+            </td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>U004</td>
+            <td>isznurin</td>
+            <td>
+              <button class="btn view">View</button>
+            </td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>U005</td>
+            <td>habilewaf</td>
+            <td>
+              <button class="btn view">View</button>
+            </td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>U006</td>
+            <td>yadly</td>
+            <td>
+              <button class="btn view">View</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="pagination">
+        <button class="pagination-logo first"></button> <!-- First button as logo -->
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>...</button>
+        <button>10</button>
+        <button class="pagination-logo last"></button> <!-- Last button as logo -->
+      </div>
+    </main>
+  </div>
+  <div class="role-indicator">Role: JPNJ User (State Admin)</div>
+    </div>
+</body>
+</html>

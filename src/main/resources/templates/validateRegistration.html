@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validate Registration</title>
+  <link rel="stylesheet" href="validateRegisrationStyles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="../static/css/images/TVPSS-Logo.png" alt="Logo" class="logo-img"> <!-- Replace 'logo.png' with your logo file path -->
+            <span>TVPSS MIS</span>
+          </div>
+      <nav>
+        <ul>
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="manageUserProfile.html">Profile</a></li>
+          <li><a href="#">Search School</a></li>
+          <li class="active"><a href="validateRegistration.html">Validate User Registrations</a></li>
+          <li><a href="manageUsers.html">Manage Users</a></li>
+          <li><a href="#">Settings</a></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+      </nav>
+      <div class="user-info">
+        <img src="Profile.png" alt="Profile Picture" class="profile-pic">
+        <div>
+          <p>Danial Dan</p>
+          <p>danial@moe.gov.my</p>
+        </div>
+      </div>
+    </aside>
+    <main class="content">
+      <h1>Validate Registration</h1>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Username</th>
+            <th>Phone Number</th>
+            <th>Email Address</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>danialdan</td>
+            <td>(+60) 12 345 6789</td>
+            <td>danial@moe.gov.my</td>
+            <td>Approved</td>
+            <td>
+              <button class="btn disabled">Approve</button>
+              <button class="btn reject">Reject</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>zairi</td>
+            <td>(+60) 12 345 6789</td>
+            <td>zairi@gmail.com</td>
+            <td>Rejected</td>
+            <td>
+              <button class="btn approve">Approve</button>
+              <button class="btn disabled">Reject</button>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>auninajwa</td>
+            <td>(+60) 12 345 6789</td>
+            <td>auninajwa@moe.gov.my</td>
+            <td>-</td>
+            <td>
+              <button class="btn approve">Approve</button>
+              <button class="btn reject">Reject</button>
+            </td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>isznurin</td>
+            <td>(+60) 12 345 6789</td>
+            <td>isznurin@moe.gov.my</td>
+            <td>-</td>
+            <td>
+              <button class="btn approve">Approve</button>
+              <button class="btn reject">Reject</button>
+            </td>
+          </tr>
+          <!-- Add more rows as needed -->
+        </tbody>
+      </table>
+      <div class="pagination">
+        <button class="pagination-logo first"></button> <!-- First button as logo -->
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>...</button>
+        <button>10</button>
+        <button class="pagination-logo last"></button> <!-- Last button as logo -->
+      </div>
+    </main>
+  </div>
+  <div class="role-indicator">Role: JPNJ User (State Admin)</div>
+    </div>
+</body>
+</html>
