@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,28 +9,9 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- For Pie Chart -->
 </head>
 <body>
-<aside class="sidebar">
-    <div class="logo">
-        <img src="/css/images/TVPSS-Logo.png" alt="Logo" class="logo-img"> <!-- Replace 'logo.png' with your logo file path -->
-        <span>TVPSS MIS</span>
-    </div>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li class="active"><a href="/dashboard">Dashboard</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Logout</a></li>
-        </ul>
-    </nav>
-    <div class="user-info">
-        <img src="/css/images/pfp.webp" alt="Profile Picture" class="profile-pic">
-        <div>
-            <p>Danial Dan</p>
-            <p>danial@moe.gov.my</p>
-        </div>
-    </div>
-</aside>
+<!-- Insert Sidebar Fragment -->
+<div th:insert="fragments/sidebar :: sidebar"></div>
+
 <div class="main-content">
     <div class="breadcrumbs">
         <span>Dashboard</span> > <span>Analysis</span>

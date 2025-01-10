@@ -12,13 +12,12 @@ public class JPNJController {
 
     @GetMapping("/dashboard")
     public String dashboard(Model model, HttpSession session) {
-        // Check if user is logged in and has correct role
         if (session.getAttribute("role") == null ||
                 !session.getAttribute("role").equals("JPNJ")) {
             return "redirect:/login";
         }
 
         model.addAttribute("username", session.getAttribute("username"));
-        return "/JPNJ/dashboard";
+        return "JPNJ/dashboard";
     }
 }

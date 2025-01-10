@@ -12,13 +12,12 @@ public class PPDController {
 
     @GetMapping("/dashboard")
     public String dashboard(Model model, HttpSession session) {
-        // Check if user is logged in and has correct role
         if (session.getAttribute("role") == null ||
                 !session.getAttribute("role").equals("PPD")) {
             return "redirect:/login";
         }
 
         model.addAttribute("username", session.getAttribute("username"));
-        return "/PPD/dashboard";
+        return "PPD/dashboard";
     }
 }

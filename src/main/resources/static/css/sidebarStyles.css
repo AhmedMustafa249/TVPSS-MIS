@@ -1,0 +1,57 @@
+/* Sidebar Styles */
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar nav ul li {
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.sidebar nav ul li.active,
+.sidebar nav ul li:hover {
+    background-color: #4256D0;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    font-size: 16px; /* Adjust font size for better visibility */
+    font-weight: 500;
+}
+
+.sidebar .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add spacing between logo and text */
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px 15px;
+}
+
+.sidebar .logo img {
+    width: 40px; /* Adjust logo icon width */
+    height: 40px; /* Adjust logo icon height */
+}
+
+.sidebar .user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add spacing between profile picture and user details */
+    padding: 15px;
+}
+
+.sidebar .user-info .profile-pic {
+    width: 40px; /* Adjust profile picture size */
+    height: 40px;
+    border-radius: 50%;
+}
+
+.sidebar .user-info p {
+    margin: 0;
+    font-size: 14px;
+}
