@@ -51,11 +51,10 @@ public class AuthController {
             model.addAttribute("error", "Passwords do not match");
             return "register";
         }
-
         userService.register(registerRequest);
-
         return "redirect:/login";
     }
+
 
     @GetMapping("/users")
     public List<User> getAllUsers() {
@@ -89,5 +88,6 @@ public class AuthController {
 
         return "/login";
     }
+
 
 }
