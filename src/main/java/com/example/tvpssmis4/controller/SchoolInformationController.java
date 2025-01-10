@@ -4,7 +4,6 @@ import com.example.tvpssmis4.model.SchoolInformation;
 import com.example.tvpssmis4.service.SchoolInformationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +26,7 @@ public class SchoolInformationController {
     @GetMapping("/enter")
     public String showEnterSchoolInformationPage(Model model) {
         model.addAttribute("Message", "School Information");
-        return "EnterSchoolInformationPage"; // Name of the HTML file in templates directory
+        return "SchoolInformationViews/EnterSchoolInformationPage"; // Name of the HTML file in templates directory
     }
 
     @GetMapping
@@ -59,7 +58,7 @@ public class SchoolInformationController {
         model.addAttribute("school", school);
 
         // Return the Thymeleaf template
-        return "DisplaySchoolInfoPage"; // Name of the HTML file in templates directory
+        return "SchoolInformationViews/DisplaySchoolInfoPage"; // Name of the HTML file in templates directory
     }
 
     @GetMapping("/{id}")

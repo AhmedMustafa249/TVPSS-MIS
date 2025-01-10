@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Information</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/dashboardStyles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="logo">
+        <img src="/css/images/TVPSS-Logo.png" alt="Logo" class="logo-img"> <!-- Replace 'logo.png' with your logo file path -->
+        <span>TVPSS MIS</span>
+      </div>
+  <nav>
+    <ul>
+       <li><a href="#">Home</a></li>
+        <li class="active"><a href="#">Dashboard</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Settings</a></li>
+        <li><a href="#">Logout</a></li>
+    </ul>
+  </nav>
+  <div class="user-info">
+    <img src="/css/images/pfp.webp" alt="Profile Picture" class="profile-pic">
+    <div>
+      <p>Danial Dan</p>
+      <p>danial@moe.gov.my</p>
+    </div>
+  </div>
+</aside>
+
+  <div class="main-content">
+    <div class="breadcrumbs">
+      <span>Dashboard</span> > <span>School Information</span>
+    </div>
+    <h1>Dashboard</h1>
+    <div class="tabs">
+      <a href="/dashboard" class="active">School Information</a>
+      <a href="/report">Report</a>
+      <a href="/analysis">Analysis</a>
+    </div>
+
+    <div class="info-box">
+      <h2 class="school-info-heading">List of School Information</h2>
+      <div class="filter-bar">
+        <input type="text" class="search-bar" placeholder="Enter School Information..." />
+        <button class="filter-btn" onclick="openFilter()">Filter +</button>
+      </div>
+
+      <!-- Table Data -->
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Code</th>
+            <th>School</th>
+            <th>State</th>
+            <th>Version</th>
+            <th>Social Media</th>
+            <th>Last Updated</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>JBA3002</td>
+            <td>SEKOLAH KEBANGSAAN (FELDA) BUKIT WAHA</td>
+            <td>KOTA TINGGI</td>
+            <td><span class="version version-green">Version 4</span></td>
+            <td><a href="#" class="social-link">SKBW TV</a></td>
+            <td>25-04-2024</td>
+            <td><a href="/view" class="view-btn">View</a></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>JBA3003</td>
+            <td>SEKOLAH KEBANGSAAN BUKIT LINTANG</td>
+            <td>KOTA TINGGI</td>
+            <td><span class="version version-orange">Version 2</span></td>
+            <td><a href="#" class="social-link">SKBL TV</a></td>
+            <td>20-04-2024</td>
+            <td><button class="view-btn">View</button></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>JBA3004</td>
+            <td>SEKOLAH KEBANGSAAN SELIDI BESAR</td>
+            <td>KOTA TINGGI</td>
+            <td><span class="version version-green">Version 4</span></td>
+            <td><a href="#" class="social-link">SKSB TV</a></td>
+            <td>28-04-2024</td>
+            <td><button class="view-btn">View</button></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>JBA3005</td>
+            <td>SEKOLAH KEBANGSAAN MAWAI</td>
+            <td>KOTA TINGGI</td>
+            <td><span class="version version-blue">Version 3</span></td>
+            <td><a href="#" class="social-link">SKM TV</a></td>
+            <td>20-06-2024</td>
+            <td><button class="view-btn">View</button></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>JBA3006</td>
+            <td>SEKOLAH KEBANGSAAN JOHOR KAMPONG</td>
+            <td>KOTA TINGGI</td>
+            <td><span class="version version-red">N/A</span></td>
+            <td><span class="social-link unavailable">N/A</span></td>
+            <td>20-05-2024</td>
+            <td><button class="view-btn">View</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="pagination">
+        <button>&lt;</button>
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+        <span>...</span>
+        <button>9</button>
+        <button>10</button>
+        <button>&gt;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filter Modal -->
+  <div id="filterModal" class="filter-modal">
+    <div class="filter-content">
+      <h2>Filter</h2>
+      <form>
+        <div>
+          <input type="checkbox" id="filterSchoolName" />
+          <label for="filterSchoolName">School Name</label>
+        </div>
+        <div>
+          <input type="checkbox" id="filterState" />
+          <label for="filterState">State</label>
+          <select>
+            <option value="">Select State</option>
+            <option value="Kota Tinggi">Kota Tinggi</option>
+       
+          </select>
+        </div>
+        <div>
+          <input type="checkbox" id="filterVersion" />
+          <label for="filterVersion">Version</label>
+          <select>
+            <option value="">Select Version</option>
+            <option value="1">Version 1</option>
+            <option value="2">Version 2</option>
+            <option value="3">Version 3</option>
+            <option value="4">Version 4</option>
+          </select>
+        </div>
+        <div>
+          <input type="checkbox" id="filterYoutubeChannel" />
+          <label for="filterYoutubeChannel">YouTube Channel</label>
+        </div>
+        <div>
+          <input type="checkbox" id="filterSchoolCode" />
+          <label for="filterSchoolCode">School Code</label>
+        </div>
+        <div>
+          <input type="checkbox" id="filterStudioLevel" />
+          <label for="filterStudioLevel">Studio Level</label>
+          <div class="checkbox-group">
+            <input type="checkbox" id="level1" />
+            <label for="level1">Level 1</label>
+            <input type="checkbox" id="level2" />
+            <label for="level2">Level 2</label>
+            <input type="checkbox" id="level3" />
+            <label for="level3">Level 3</label>
+          </div>
+        </div>
+        <button type="submit" class="apply-btn">Apply</button>
+      </form>
+      <button class="close-btn" onclick="closeFilter()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript for Filter Modal
+    function openFilter() {
+      document.getElementById('filterModal').style.display = 'block';
+    }
+
+    function closeFilter() {
+      document.getElementById('filterModal').style.display = 'none';
+    }
+  </script>
+
+  <style>
+    /* Filter Modal Styles */
+    .filter-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+    }
+
+    .filter-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+    }
+
+    .filter-content h2 {
+      margin-bottom: 20px;
+    }
+
+    .filter-content form div {
+      margin-bottom: 10px;
+    }
+
+    .filter-content .checkbox-group {
+      padding-left: 20px;
+    }
+
+    .filter-content .apply-btn, .filter-content .close-btn {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+
+    .filter-content .close-btn {
+      background: #dc3545;
+    }
+  </style>
+</body>
+</html>

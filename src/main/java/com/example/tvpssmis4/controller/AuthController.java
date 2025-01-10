@@ -26,40 +26,41 @@ public class AuthController {
     @GetMapping("/login")
     public String showLoginPage(Model model) {
         model.addAttribute("loginRequest", new LoginRequest());
-        return "login";
+        return "UserAuthenticationViews/login";
     }
 
     @PostMapping("/login")
     public String handleLogin(@Valid LoginRequest loginRequest, Model model) {
         boolean success = userService.login(loginRequest);
         if (success) {
-            return "redirect:/home";
+            return "redirect:/dashboard";
         }
         model.addAttribute("error", "Invalid username or password");
-        return "login";
+        return "UserAuthenticationViews/login";
     }
 
     @GetMapping("/register")
     public String showRegisterPage(Model model) {
         model.addAttribute("registerRequest", new RegisterRequest());
-        return "register";
+        return "UserAuthenticationViews/register";
     }
 
     @PostMapping("/register")
     public String handleRegister(@Valid RegisterRequest registerRequest, Model model) {
         if (!registerRequest.getPassword().equals(registerRequest.getConfirmPassword())) {
             model.addAttribute("error", "Passwords do not match");
-            return "register";
+            return "UserAuthenticationViews/register";
         }
+
         userService.register(registerRequest);
         return "redirect:/login";
     }
 
 
-    @GetMapping("/users")
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
-    }
+
+
+
+    // ### TESTING CASES ###
 
     @GetMapping("/test-save")
     public String testSave() {
@@ -89,5 +90,9 @@ public class AuthController {
         return "/login";
     }
 
+    @GetMapping("/users")
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
 
 }

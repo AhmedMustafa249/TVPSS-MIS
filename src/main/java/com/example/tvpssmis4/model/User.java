@@ -3,6 +3,7 @@ package com.example.tvpssmis4.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import com.example.tvpssmis4.model.SchoolInformation;
 import lombok.Data;
 
 @Data
@@ -29,6 +30,10 @@ public class User {
 
     @NotEmpty
     private String role;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "schoolId", referencedColumnName = "id")
+    private SchoolInformation schoolInformation;
 
     // Getters and setters
     public Long getId() {
@@ -90,5 +95,13 @@ public class User {
             return role="JPNJ";
         }
         return role="Unknown";
+    }
+
+    public SchoolInformation getSchoolInformation() {
+        return schoolInformation;
+    }
+
+    public void setSchoolInformation(SchoolInformation schoolInformation) {
+        this.schoolInformation = schoolInformation;
     }
 }
