@@ -53,6 +53,7 @@ public class AuthController {
         }
 
         userService.register(registerRequest);
+
         return "redirect:/login";
     }
 

@@ -27,6 +27,9 @@ public class User {
     @NotEmpty
     private String password;
 
+    @NotEmpty
+    private String role;
+
     // Getters and setters
     public Long getId() {
         return id;
@@ -66,5 +69,26 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String determineRole(String username) {
+        String lastThreeLetters = username.substring(username.length() - 3);
+        String lastFourLetters = username.substring(username.length() - 4);
+        if(lastThreeLetters.equals("GPM")) {
+            return role="GPM";
+        }else if(lastThreeLetters.equals("PPD")) {
+            return role="PPD";
+        }else if(lastFourLetters.equals("JPNJ")) {
+            return role="JPNJ";
+        }
+        return role="Unknown";
     }
 }

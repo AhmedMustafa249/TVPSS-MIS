@@ -36,4 +36,8 @@ public class SchoolInformationService {
                 .filter(school -> !school.isVerified())
                 .toList();
     }
+
+    public void verifyStatus(SchoolInformation school) {
+        school.setVerified(true);
+    }
 }
