@@ -1,0 +1,474 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.sidebar {
+    width: 250px;
+    background: url('./images/sidebar-bg.png') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.sidebar .logo {
+    display: flex; /* Flexbox for horizontal alignment */
+    align-items: center; /* Vertically center the content */
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+    margin-bottom: 10px;
+    gap: 10px; /* Space between logo and text */
+}
+
+.sidebar .logo .logo-img {
+    width: 84px; /* Adjust logo size as needed */
+    height: 84px;
+    object-fit: contain; /* Ensures the logo maintains its aspect ratio */
+}
+
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Ensure no extra space around the nav */
+}
+
+.sidebar nav ul li {
+    padding: 10px 15px; /* Reduced padding for compact layout */
+    margin-bottom: 5px; /* Space between items */
+}
+
+.sidebar nav ul li.active,
+.sidebar nav ul li:hover {
+    background-color: #4256D0;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+}
+
+.sidebar .user-info {
+    display: flex;
+    align-items: center;
+    padding: 10px; /* Reduced padding */
+    margin-top: auto; /* Anchors to the bottom of the sidebar */
+}
+
+.sidebar .user-info .profile-pic {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu {
+    padding: 15px 20px;
+}
+
+.menu {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+
+
+
+.info-box {
+    margin-top: 20px;
+    padding: 300px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.info-box p {
+    font-size: 16px;
+    color: #6b7280;
+}
+
+.info-box button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.info-box button:hover {
+    background-color: #2563eb;
+}
+
+
+
+h1 {
+    font-size: 22px;
+    color: #333;
+}
+
+.note {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.required {
+    color: red;
+}
+
+/* Form Styles */
+.school-form {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #374151;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+.checkboxes {
+    align-items: left;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.checkboxes label {
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.confirm {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.confirm:hover {
+    background-color: #2563eb;
+}
+
+.cancel {
+    background-color: #f3f4f6;
+    border: 1px solid #d1d5db;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel:hover {
+    background-color: #e5e7eb;
+}
+
+.upload-logo {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.upload-logo:hover {
+    background-color: #2563eb;
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    background-color: #f3f4f6;
+}
+
+.main-content2 {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 10px 20px 10px;
+    background-color: #f3f4f6;
+}
+
+h1 {
+    font-size: 22px;
+    color: #333;
+}
+
+.note {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.required {
+    color: red;
+}
+
+/* Form Styles */
+.school-form {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 1500px;
+    width: 100%;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.form-left, .form-right {
+    padding:20px;
+    flex: 1;
+}
+
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #374151;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+/* Checkbox Group */
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+    font-size: 14px;
+    color: #374151;
+}
+
+.checkbox-container input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    accent-color: #3b82f6; /* Customize checkbox color */
+}
+
+
+.info-form {
+    width: 100%;
+    max-width: 1500px;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.info-group {
+    flex: 1;
+    padding:10px;
+}
+
+.info-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.info-group input {
+    width: 95%;
+    padding: 8px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #f3f4f6;
+    color: #6b7280;
+}
+
+.info-group input[readonly] {
+    cursor: not-allowed;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.left-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.right-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.confirm-btn, .cancel-btn, .upload-logo-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.confirm-btn {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.confirm-btn:hover {
+    background-color: #2563eb;
+}
+
+.cancel-btn {
+    background-color: #e5e7eb;
+    color: #374151;
+}
+
+.cancel-btn:hover {
+    background-color: #d1d5db;
+}
+
+.upload-logo-btn {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.upload-logo-btn:hover {
+    background-color: #2563eb;
+}
+
+
+.edit-btn {
+    padding: 10px 20px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background-color: #2563eb;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    flex-direction: column;
+}
+
+.content .spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #536DFF;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.content .status {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #536DFF;
+}

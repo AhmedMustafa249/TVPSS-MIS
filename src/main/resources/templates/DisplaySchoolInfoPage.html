@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Information</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<aside class="sidebar">
+    <div class="logo">
+        <img src="/css/images/TVPSS Logo.png" alt="Logo" class="logo-img">
+        <span>TVPSS MIS</span>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li class="active"><a href="#">Dashboard</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="user-info">
+        <img src="/css/images/pfp.webp" alt="Profile Picture" class="profile-pic">
+        <div>
+            <p>Danial Dan</p>
+            <p>danial@moe.gov.my</p>
+        </div>
+    </div>
+</aside>
+<div class="main-content">
+    <h1>Hello, <span>Danial</span>. <span class="wave">👋</span></h1>
+    <h2>Your School’s Information:</h2>
+    <form class="info-form">
+        <div class="info-row">
+            <div class="info-group">
+                <label for="school-name">School Name</label>
+                <input type="text" id="school-name" th:value="${school.schoolName}" readonly>
+            </div>
+            <div class="info-group">
+                <label for="school-code">School Code</label>
+                <input type="text" id="school-code" th:value="${school.schoolCode}" readonly>
+            </div>
+        </div>
+        <div class="info-row">
+            <div class="info-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" th:value="${school.address}" readonly>
+            </div>
+            <div class="info-group">
+                <label for="contact">Contact Information</label>
+                <input type="text" id="contact" th:value="${school.contactInformation}" readonly>
+            </div>
+        </div>
+        <div class="info-row">
+            <div class="info-group">
+                <label for="person-in-charge">Person In-Charge</label>
+                <input type="text" id="person-in-charge" th:value="${school.personInCharge}" readonly>
+            </div>
+            <div class="info-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" th:value="${school.email}" readonly>
+            </div>
+        </div>
+        <div class="info-row">
+            <div class="info-group">
+                <label for="brand-name">Brand Name</label>
+                <input type="text" id="brand-name" th:value="${school.brandName}" readonly>
+            </div>
+            <div class="info-group">
+                <label for="youtube-channel">YouTube Channel</label>
+                <input type="text" id="youtube-channel" th:value="${school.youtubeChannelLink}" readonly>
+            </div>
+        </div>
+        <div class="info-row">
+            <div class="info-group">
+                <label for="version">Version</label>
+                <input type="text" id="version" th:value="${school.version}" readonly>
+            </div>
+            <div class="info-group">
+                <label for="studio-level">Studio Level</label>
+                <input type="text" id="studio-level" th:value="${school.studioLevel}" readonly>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="button" class="edit-btn">Edit Information</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
