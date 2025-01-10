@@ -36,6 +36,7 @@ public class UserService {
         myUser.setEmail(registerRequest.getEmail());
         myUser.setPhoneNumber(registerRequest.getPhoneNumber());
         myUser.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
+        myUser.determineRole(registerRequest.getUsername());
 
         logger.info("User successfully registered: {}", myUser.getUsername()); // Log the username
 

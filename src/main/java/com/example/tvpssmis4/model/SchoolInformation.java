@@ -26,7 +26,7 @@ public class SchoolInformation {
     private boolean outsideRecording;
     private boolean agencyCollaboration;
     private boolean greenScreen;
-    private boolean verified;
+    private boolean verified = false;
 
     private int version = 0;
     // Getters and Setters

@@ -28,16 +28,24 @@ public class SchoolInformationController {
         model.addAttribute("Message", "School Information");
         return "SchoolInformationViews/EnterSchoolInformationPage"; // Name of the HTML file in templates directory
     }
+
     @GetMapping
     public List<SchoolInformation> getAllSchools() {
         return service.getAllSchools();
+    }
+
+    @PostMapping("/save_new_school")
+    public String saveNewSchoolInformation(@ModelAttribute SchoolInformation school) {
+        school.updateVersion();
+        service.createOrUpdateSchool(school);
+        return "redirect:/schools/pendingSchool";
     }
 
     @PostMapping("/save")
     public String saveSchoolInformation(@ModelAttribute SchoolInformation school, Model model) {
         school.updateVersion();
         service.createOrUpdateSchool(school);
-        return "redirect:/schools/display/"+school.getId();
+        return "redirect:/schools/display/" + school.getId();
     }
 
 
@@ -74,4 +82,14 @@ public class SchoolInformationController {
     public List<SchoolInformation> getPendingVerificationSchools() {
         return service.getPendingVerificationSchools();
     }
+
+    @GetMapping("/pendingSchool")
+    public String showPendingVerificationPage(@ModelAttribute SchoolInformation school) {
+        if (!school.isVerified()) {
+            return "PendingVerificationPage";
+        }else{
+            return "home";
+        }
+    }
+
 }
