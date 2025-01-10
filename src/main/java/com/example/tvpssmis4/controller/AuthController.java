@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.example.tvpssmis4.repository.UserRepository;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -55,6 +56,24 @@ public class AuthController {
         userService.register(registerRequest);
         return "redirect:/login";
     }
+
+    @GetMapping("/reset-password")
+    public String showResetPasswordPage() {
+        return "UserAuthenticationViews/resetPassword"; // Renders resetPassword.html
+    }
+
+    // Handle reset password form submission
+    @PostMapping("/reset-password")
+    public String handleResetPassword(@RequestParam("email") String email, Model model) {
+        boolean success = userService.sendResetPasswordLink(email);
+        if (success) {
+            model.addAttribute("message", "A reset password link has been sent to your email.");
+        } else {
+            model.addAttribute("error", "No account found with that email.");
+        }
+        return "UserAuthenticationViews/resetPassword"; // Return to the same page with a success or error message
+    }
+
 
 
 

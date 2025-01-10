@@ -41,4 +41,18 @@ public class UserService {
 
         userRepository.save(myUser);
     }
+
+    public boolean sendResetPasswordLink(String email) {
+        // Check if a user exists with the given email
+        User user = userRepository.findByEmail(email);
+        if (user != null) {
+            // Simulate sending a reset password link (You can integrate an email service here)
+            System.out.println("Reset password link sent to: " + email);
+            return true;
+        } else {
+            // No user found with the provided email
+            System.out.println("No account found with email: " + email);
+            return false;
+        }
+    }
 }
