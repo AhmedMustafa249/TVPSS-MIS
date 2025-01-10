@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,56 +64,23 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>JBA3002</td>
-            <td>SEKOLAH KEBANGSAAN (FELDA) BUKIT WAHA</td>
-            <td>KOTA TINGGI</td>
-            <td><span class="version version-green">Version 4</span></td>
-            <td><a href="#" class="social-link">SKBW TV</a></td>
-            <td>25-04-2024</td>
-            <td><a href="/view" class="view-btn">View</a></td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>JBA3003</td>
-            <td>SEKOLAH KEBANGSAAN BUKIT LINTANG</td>
-            <td>KOTA TINGGI</td>
-            <td><span class="version version-orange">Version 2</span></td>
-            <td><a href="#" class="social-link">SKBL TV</a></td>
-            <td>20-04-2024</td>
-            <td><button class="view-btn">View</button></td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>JBA3004</td>
-            <td>SEKOLAH KEBANGSAAN SELIDI BESAR</td>
-            <td>KOTA TINGGI</td>
-            <td><span class="version version-green">Version 4</span></td>
-            <td><a href="#" class="social-link">SKSB TV</a></td>
-            <td>28-04-2024</td>
-            <td><button class="view-btn">View</button></td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>JBA3005</td>
-            <td>SEKOLAH KEBANGSAAN MAWAI</td>
-            <td>KOTA TINGGI</td>
-            <td><span class="version version-blue">Version 3</span></td>
-            <td><a href="#" class="social-link">SKM TV</a></td>
-            <td>20-06-2024</td>
-            <td><button class="view-btn">View</button></td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>JBA3006</td>
-            <td>SEKOLAH KEBANGSAAN JOHOR KAMPONG</td>
-            <td>KOTA TINGGI</td>
-            <td><span class="version version-red">N/A</span></td>
-            <td><span class="social-link unavailable">N/A</span></td>
-            <td>20-05-2024</td>
-            <td><button class="view-btn">View</button></td>
-          </tr>
+        <!-- Loop through the schools list -->
+        <tr th:each="school, iterStat : ${schools}">
+          <td th:text="${iterStat.count}">1</td>
+          <td th:text="${school.getSchoolCode()}">JBA3002</td>
+          <td th:text="${school.getSchoolName()}">SEKOLAH KEBANGSAAN (FELDA) BUKIT WAHA</td>
+          <td th:text="${school.getAddress()}">KOTA TINGGI</td>
+          <td>
+            <span th:class="'version version-' + ${school.getVersion()}" th:text="'Version ' + ${school.version}">Version 4</span>
+          </td>
+          <td>
+            <a th:href="${school.getYoutubeChannelLink()}" th:text="${school.getYoutubeChannelLink()}">SKBW TV</a>
+          </td>
+          <td>25-04-2024</td>
+          <td>
+            <a th:href="@{'/schools/school-details/' + ${school.id}}" class="view-btn">View</a>
+          </td>
+        </tr>
         </tbody>
       </table>
 

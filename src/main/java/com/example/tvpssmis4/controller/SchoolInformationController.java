@@ -86,10 +86,21 @@ public class SchoolInformationController {
     @GetMapping("/pendingSchool")
     public String showPendingVerificationPage(@ModelAttribute SchoolInformation school) {
         if (!school.isVerified()) {
-            return "PendingVerificationPage";
+            return "SchoolInformationViews/PendingVerificationPage";
         }else{
             return "home";
         }
+    }
+
+    @GetMapping("/school-details/{id}")
+    public String showSchoolDetails(@PathVariable Long id, Model model) {
+        SchoolInformation school = service.getSchoolById(id); // Fetch school info by ID
+        if (school == null) {
+            // Handle case when school is not found
+            return "error/404"; // Use a 404 error page or redirect
+        }
+        model.addAttribute("school", school);
+        return "AdminAnalyticsViews/SchoolDetails"; // Ensure this matches the file location
     }
 
 }

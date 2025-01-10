@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -106,18 +106,18 @@
   </style>
 </head>
 <body>
-  <aside class="sidebar">
-    <div class="logo">
-        <img src="/css/images/TVPSS-Logo.png" alt="Logo" class="logo-img"> <!-- Replace 'logo.png' with your logo file path -->
-        <span>TVPSS MIS</span>
-      </div>
+<aside class="sidebar">
+  <div class="logo">
+    <img src="/css/images/TVPSS-Logo.png" alt="Logo" class="logo-img">
+    <span>TVPSS MIS</span>
+  </div>
   <nav>
     <ul>
-       <li><a href="#">Home</a></li>
-        <li class="active"><a href="#">Dashboard</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">Logout</a></li>
+      <li><a href="#">Home</a></li>
+      <li class="active"><a href="#">Dashboard</a></li>
+      <li><a href="#">Profile</a></li>
+      <li><a href="#">Settings</a></li>
+      <li><a href="#">Logout</a></li>
     </ul>
   </nav>
   <div class="user-info">
@@ -129,66 +129,56 @@
   </div>
 </aside>
 
-  <div class="main-content">
-    <div class="breadcrumbs">
-      Dashboard > School Information
-    </div>
-    <h1>School Details</h1>
-    <div class="details-container">
-      <div class="details-header">
-        <div>
-          <img src="/css/images/school-logo.png" alt="School Logo">
-          <p>School Logo</p>
-        </div>
-        <div class="placeholder">
-          <p>N/A</p>
-          <p>TVPSS Logo</p>
-        </div>
-      </div>
-      <div class="details-grid">
-        <div>
-          <label>School Name</label>
-          <input type="text" value="Sekolah Kebangsaan Johor Kampong" disabled>
-        </div>
-        <div>
-          <label>School Code</label>
-          <input type="text" value="JBA3007" disabled>
-        </div>
-        <div>
-          <label>Address</label>
-          <input type="text" value="Kampung Johor Lama 81900 Bandar Tenggara Johore" disabled>
-        </div>
-        <div>
-          <label>Contact Information</label>
-          <input type="text" value="+60356887412" disabled>
-        </div>
-        <div>
-          <label>Person In-Charge</label>
-          <input type="text" value="N/A" disabled>
-        </div>
-        <div>
-          <label>Email</label>
-          <input type="text" value="skjohorkampong@gmail.com" disabled>
-        </div>
-        <div>
-          <label>Brand Name</label>
-          <input type="text" value="N/A" disabled>
-        </div>
-        <div>
-          <label>YouTube Channel</label>
-          <input type="text" value="N/A" disabled>
-        </div>
-        <div>
-          <label>Version</label>
-          <input type="text" value="N/A" disabled>
-        </div>
-        <div>
-          <label>Studio Level</label>
-          <input type="text" value="N/A" disabled>
-        </div>
-      </div>
-      <a href="/dashboard" class="back-link">&lt;&lt; Back</a>
-    </div>
+<div class="main-content">
+  <div class="breadcrumbs">
+    Dashboard > School Information > School Details
   </div>
+  <h1>School Details</h1>
+  <div class="details-container">
+    <div class="details-grid">
+      <div>
+        <label>School Name</label>
+        <input type="text" th:value="${school.schoolName}" disabled>
+      </div>
+      <div>
+        <label>School Code</label>
+        <input type="text" th:value="${school.schoolCode}" disabled>
+      </div>
+      <div>
+        <label>Address</label>
+        <input type="text" th:value="${school.address}" disabled>
+      </div>
+      <div>
+        <label>Contact Information</label>
+        <input type="text" th:value="${school.contactInformation}" disabled>
+      </div>
+      <div>
+        <label>Person In-Charge</label>
+        <input type="text" th:value="${school.personInCharge}" disabled>
+      </div>
+      <div>
+        <label>Email</label>
+        <input type="text" th:value="${school.email}" disabled>
+      </div>
+      <div>
+        <label>Brand Name</label>
+        <input type="text" th:value="${school.brandName}" disabled>
+      </div>
+      <div>
+        <label>YouTube Channel</label>
+        <input type="text" th:value="${school.youtubeChannelLink}" disabled>
+      </div>
+      <div>
+        <label>Version</label>
+        <input type="text" th:value="${school.version}" disabled>
+      </div>
+      <div>
+        <label>Studio Level</label>
+        <input type="text" th:value="${school.studioLevel}" disabled>
+      </div>
+    </div>
+    <a href="/dashboard" class="back-link">&lt;&lt; Back</a>
+  </div>
+</div>
 </body>
 </html>

@@ -21,13 +21,13 @@ public class UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public boolean login(LoginRequest loginRequest) {
+    public User login(LoginRequest loginRequest) {
         User myUser = userRepository.findByUsernameOrEmail(
                 loginRequest.getUsernameOrEmail(), loginRequest.getUsernameOrEmail());
         if (myUser != null && passwordEncoder.matches(loginRequest.getPassword(), myUser.getPassword())) {
-            return true;
+            return myUser;
         }
-        return false;
+        return null;
     }
 
     public void register(RegisterRequest registerRequest) {
@@ -56,4 +56,6 @@ public class UserService {
             return false;
         }
     }
+
+
 }
