@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:if="${#authorization.expression('hasRole(\'GPM\')')}">
+    <h1>GPM Dashboard</h1>
+    <!-- GPM-specific content -->
+</div>
+
+<div th:if="${#authorization.expression('hasRole(\'PPD\')')}">
+    <h1>PPD Dashboard</h1>
+    <!-- PPD-specific content -->
+</div>
+
+<div th:if="${#authorization.expression('hasRole(\'JPNJ\')')}">
+    <h1>JPNJ Dashboard</h1>
+    <!-- JPNJ-specific content -->
+</div>
+
+</body>
+</html>
