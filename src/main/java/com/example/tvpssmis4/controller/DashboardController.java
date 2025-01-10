@@ -1,28 +1,26 @@
 package com.example.tvpssmis4.controller;
 
-import com.example.tvpssmis4.repository.UserRepository;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+import com.example.tvpssmis4.model.SchoolInformation;
+import com.example.tvpssmis4.service.SchoolInformationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import com.example.tvpssmis4.model.User;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.List;
 
 @Controller
 public class DashboardController {
 
+    @Autowired
+    private SchoolInformationService schoolInformationService;
+
     @GetMapping("/dashboard")
-    public String showDashboard(Authentication authentication) {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        switch (user.getRole()) {
-            case "GPM":
-                return "redirect:/gpm/dashboard";
-            case "PPD":
-                return "redirect:/ppd/dashboard";
-            case "JPNJ":
-                return "redirect:/jpnj/dashboard";
-            default:
-                return "redirect:/default/dashboard"; // Fallback for unknown roles
-        }// This will render dashboard.html
+    public String showDashboard(Model model) {
+        List<SchoolInformation> schools = schoolInformationService.getAllSchools();
+        model.addAttribute("schools", schools);
+        return "AdminAnalyticsViews/SchoolInfo"; // This will render dashboard.html
     }
 
     @GetMapping("/report")
@@ -35,8 +33,18 @@ public class DashboardController {
         return "AdminAnalyticsViews/Analysis"; // Renders analysis.html
     }
 
-    @GetMapping("/view")
+    @GetMapping("/SchoolDetails")
     public String showView() {
-        return "AdminAnalyticsViews/View"; // Renders analysis.html
+        return "AdminAnalyticsViews/SchoolDetails"; // Renders analysis.html
+    }
+
+    @GetMapping("/school-details/{id}")
+    public String showSchoolDetails(@PathVariable Long id, Model model) {
+        SchoolInformation school = schoolInformationService.getSchoolById(id); // Fetch school info by ID
+        if (school == null) {
+            return "error/404"; // Return an error page if the school is not found
+        }
+        model.addAttribute("school", school);
+        return "AdminAnalyticsViews/SchoolDetails"; // Ensure this matches the actual template location
     }
 }

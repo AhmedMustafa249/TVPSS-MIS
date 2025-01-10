@@ -21,13 +21,13 @@ public class UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public boolean login(LoginRequest loginRequest) {
+    public User login(LoginRequest loginRequest) {
         User myUser = userRepository.findByUsernameOrEmail(
                 loginRequest.getUsernameOrEmail(), loginRequest.getUsernameOrEmail());
         if (myUser != null && passwordEncoder.matches(loginRequest.getPassword(), myUser.getPassword())) {
-            return true;
+            return myUser;
         }
-        return false;
+        return null;
     }
 
     public void register(RegisterRequest registerRequest) {
@@ -42,4 +42,20 @@ public class UserService {
 
         userRepository.save(myUser);
     }
+
+    public boolean sendResetPasswordLink(String email) {
+        // Check if a user exists with the given email
+        User user = userRepository.findByEmail(email);
+        if (user != null) {
+            // Simulate sending a reset password link (You can integrate an email service here)
+            System.out.println("Reset password link sent to: " + email);
+            return true;
+        } else {
+            // No user found with the provided email
+            System.out.println("No account found with email: " + email);
+            return false;
+        }
+    }
+
+
 }

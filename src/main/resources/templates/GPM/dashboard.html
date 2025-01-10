@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/dashboardStyles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- For Pie Chart -->
+</head>
+<body>
+<aside class="sidebar">
+    <div class="logo">
+        <img src="/css/images/TVPSS-Logo.png" alt="Logo" class="logo-img"> <!-- Replace 'logo.png' with your logo file path -->
+        <span>TVPSS MIS</span>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li class="active"><a href="/dashboard">Dashboard</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="user-info">
+        <img src="/css/images/pfp.webp" alt="Profile Picture" class="profile-pic">
+        <div>
+            <p>Danial Dan</p>
+            <p>danial@moe.gov.my</p>
+        </div>
+    </div>
+</aside>
+<div class="main-content">
+    <div class="breadcrumbs">
+        <span>Dashboard</span> > <span>Analysis</span>
+    </div>
+    <h1>Dashboard</h1>
+    <div class="tabs">
+        <a href="/dashboard">School Information</a>
+        <a href="/report">Report</a>
+        <a href="/analysis" class="active">Analysis</a>
+    </div>
+    <div class="analysis-content">
+        <!-- Left Side: Card Container -->
+        <div class="card-container">
+            <div class="card">
+                <h3>Total School</h3>
+                <p class="big-number">206</p>
+                <p>Since last month</p>
+            </div>
+            <div class="card">
+                <h3>Version 4</h3>
+                <p class="big-number">80</p>
+                <p>Since last month</p>
+            </div>
+            <div class="card">
+                <h3>Version 3</h3>
+                <p class="big-number">100</p>
+                <p>Since last month</p>
+            </div>
+            <div class="card">
+                <h3>Version 2</h3>
+                <p class="big-number">20</p>
+                <p>Since last week</p>
+            </div>
+            <div class="card">
+                <h3>Version 1</h3>
+                <p class="big-number">5</p>
+                <p>Since last month</p>
+            </div>
+            <div class="card">
+                <h3>Version 0</h3>
+                <p class="big-number">1</p>
+                <p>Since last month</p>
+            </div>
+        </div>
+
+        <!-- Right Side: Pie Chart Container -->
+        <div class="pie-chart-container">
+            <canvas id="pieChart"></canvas>
+            <div class="chart-legends">
+                <ul>
+                    <li><span class="legend-color version-4"></span> Version 4 (40%)</li>
+                    <li><span class="legend-color version-3"></span> Version 3 (25%)</li>
+                    <li><span class="legend-color version-2"></span> Version 2 (12%)</li>
+                    <li><span class="legend-color version-1"></span> Version 1 (13%)</li>
+                    <li><span class="legend-color version-0"></span> Version 0 (10%)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Pie Chart Data and Configurations
+    const ctx = document.getElementById('pieChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Version 4', 'Version 3', 'Version 2', 'Version 1', 'Version 0'],
+            datasets: [{
+                label: 'Version Distribution',
+                data: [80, 100, 20, 5, 1],
+                backgroundColor: ['#007bff', '#28a745', '#ffc107', '#ff4d4d', '#6c757d'],
+                borderColor: ['#007bff', '#28a745', '#ffc107', '#ff4d4d', '#6c757d'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: (tooltipItem) => {
+                            return tooltipItem.label + ' ' + tooltipItem.raw + '%';
+                        }
+                    }
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

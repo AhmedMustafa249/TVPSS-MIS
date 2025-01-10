@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Page</title>
-    <link rel="stylesheet" href="manageUserProfileStyles.css">
+    <title>Manage Selected User</title>
+    <link rel="stylesheet" href="manageSelectedUser.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -12,18 +12,19 @@
         <!-- Sidebar -->
         <div class="sidebar">
             <div class="logo">
-                <img src="../static/css/images/TVPSS-Logo.png" alt="Logo" class="logo-img">
+                <img src="../../static/css/images/TVPSS-Logo.png" alt="Logo" class="logo-img">
                 <span class="logo-text">TVPSS MIS</span>
             </div>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
                     <li><a href="#">Dashboard</a></li>
-                    <li class="active"><a href="#">Profile</a></li>
+                    <li><a href="manageUserProfile.html">Profile</a></li>
                     <li><a href="#">Search School</a></li>
+                    <li><a href="validateRegistration.html"></a>Validate User Registrations</a></li>
+                    <li class="active"><a href="manageUsers.html">Manage Users</a></li>
                     <li><a href="#">Settings</a></li>
                     <li><a href="#">Logout</a></li>
-                </ul>
+                  </ul>
             </nav>
             <div class="user-info">
                 <img src="Profile.png" alt="Profile Picture" class="profile-pic">
@@ -33,37 +34,40 @@
                 </div>
             </div>
             
-        </div> 
+        </div>
+
+        
+
         <!-- Main Content -->
         <div class="content">
-            <a href="#" class="back-button"> << Back</a>
+            <a href="manageUsers.html" class="back-button"> << Back</a>
             <div class="profile-container">
                 <div class="profile-avatar">
                     <img src="Profile.png" alt="Avatar">
                 </div>
                 <form>
-                    <label for="username">Username</label>
-                    <input type="text" id="username" value="user">
 
-                    <label for="email">Email ID</label>
-                    <input type="email" id="email" value="user@gmail.com">
+                    <label for="email">User ID</label>
+                    <input type="email" id="email" value="U001">
+
+                    
+                    <label for="username">Username</label>
+                    <input type="text" id="username" value="danialdan" readonly disabled>
+
 
                     <label for="phone">Phone Number</label>
-                    <input type="text" id="phone" value="+1408768909">
+                    <input type="text" id="phone" value="+1408768909" readonly disabled>
 
-                    <label for="password">Password</label>
-                    <input type="password" id="password" value="**********">
-
-                    <label for="password">Retype Password</label>
-                    <input type="password" id="password" value="**********">
-
-                    <button type="submit" class="update-button">Update</button>
+                    <div class="button-container">
+                <button type="submit" class="update-button">Update</button>
+                <button type="submit" class="deactivate-button">Deactivate</button>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <div class="role-indicator">Role: GPM User (School Admin)</div>
+    <div class="role-indicator">Role: JPNJ User (School Admin)</div>
     </div>
 </body>
 </html>
