@@ -24,4 +24,5 @@ public class HomeController {
         model.addAttribute("message", "This is a test page");
         return "test";
     }
+
 }
