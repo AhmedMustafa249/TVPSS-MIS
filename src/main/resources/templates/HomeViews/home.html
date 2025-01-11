@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Home')}">
+</head>
+<body>
+<div th:replace="~{fragments/sidebar :: sidebar}"></div>
+
+<div class="main-content">
+  <h1 th:text="${message}">Welcome</h1>
+  <div class="info-box">
+    <p>Demo Template Running Successfully</p>
+    <button><a th:href="@{/test}">Go to Test Page</a></button>
+  </div>
+</div>
+</body>
+</html>

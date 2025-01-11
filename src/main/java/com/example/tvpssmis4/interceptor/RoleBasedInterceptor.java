@@ -30,6 +30,8 @@ public class RoleBasedInterceptor implements HandlerInterceptor {
             return false;
         }
 
+
+
         return true;
     }
 }

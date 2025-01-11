@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/dashboardStyles.css">
+  <style>
+    /* Modal Styling */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .modal-body {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .modal-body div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-body label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .modal-body input {
+      border: 1px solid #ddd;
+      padding: 8px;
+      border-radius: 4px;
+      background-color: #f8f9fa;
+      color: #6c757d;
+    }
+
+    .modal-footer {
+      margin-top: 20px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .close-btn {
+      padding: 10px 15px;
+      background-color: #6c757d;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      background-color: #495057;
+    }
+  </style>
+</head>
+<body>
+<div th:replace="~{fragments/jpnj-sidebar  :: sidebar}"></div>
+<div class="main-content">
+  <div class="breadcrumbs">
+    <span>Dashboard</span> > <span>Report</span>
+  </div>
+  <h1>Dashboard</h1>
+  <div class="tabs">
+    <a href="/jpnj/dashboard">School Information</a>
+    <a href="/jpnj/dashboard/report" class="active">Report</a>
+    <a href="/jpnj/dashboard/analysis">Analysis</a>
+  </div>
+
+  <div class="table-header">
+    <h2>List of Reports</h2>
+  </div>
+
+  <div class="filter-bar">
+    <input type="text" class="search-bar" placeholder="Enter Report..." />
+    <button class="filter-btn" onclick="openAddReportModal()">Add Report +</button>
+  </div>
+
+  <!-- Add Report Modal -->
+  <div class="modal" id="addReportModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Add New Report</h2>
+        <button class="close-btn" onclick="closeAddReportModal()">X</button>
+      </div>
+      <form th:action="@{/jpnj/dashboard/report/add}" method="post">
+        <div class="modal-body">
+          <label for="reportName">Report Name:</label>
+          <input type="text" id="reportName" name="reportName" placeholder="Enter Report Name" required />
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="add-btn">Add Report</button>
+          <button type="button" class="close-btn" onclick="closeAddReportModal()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <table class="report-table">
+    <thead>
+    <tr>
+      <th>No</th>
+      <th>Report</th>
+      <th>Issued Date</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="report, iterStat : ${reports}">
+      <td th:text="${iterStat.count}">1</td>
+      <td th:text="${report.name}">#06</td>
+      <td th:text="${report.getIssuedDate()}">21-06-2024</td>
+      <td>
+        <form th:action="@{/jpnj/dashboard/report/delete/{id}(id=${report.id})}" method="post" style="display:inline;">
+          <button type="submit" class="delete-btn">Delete</button>
+        </form>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    <a href="#">&lt;</a>
+    <a href="#" class="active">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <span>...</span>
+    <a href="#">10</a>
+    <a href="#">&gt;</a>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal" id="reportModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>TVPSS General Information Report</h2>
+    </div>
+    <div class="modal-body">
+      <div>
+        <label>Total School</label>
+        <input type="text" value="206" readonly>
+      </div>
+      <div>
+        <label>Version 0</label>
+        <input type="text" value="1" readonly>
+      </div>
+      <div>
+        <label>Version 4</label>
+        <input type="text" value="80" readonly>
+      </div>
+      <div>
+        <label>Social Media</label>
+        <input type="text" value="155" readonly>
+      </div>
+      <div>
+        <label>Region</label>
+        <input type="text" value="JOHOR" readonly>
+      </div>
+      <div>
+        <label>Initial Establish Date</label>
+        <input type="text" value="20-04-2024" readonly>
+      </div>
+      <div>
+        <label>Latest Establish Date</label>
+        <input type="text" value="20-06-2024" readonly>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="close-btn" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openAddReportModal() {
+    document.getElementById('addReportModal').style.display = 'flex';
+  }
+
+  function closeAddReportModal() {
+    document.getElementById('addReportModal').style.display = 'none';
+  }
+</script>
+</body>
+</html>
