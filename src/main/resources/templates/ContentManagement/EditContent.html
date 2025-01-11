@@ -5,38 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit Content</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <aside class="sidebar">
-    <div class="logo">
-      <img src="TVPSS Logo.png" alt="Logo" class="logo-img">
-      <span>TVPSS MIS</span>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Dashboard</a></li>
-        <li class="active"><a href="#">Content</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">Logout</a></li>
-      </ul>
-    </nav>
-    <div class="user-info">
-      <img src="pfp.webp" alt="Profile Picture" class="profile-pic">
-      <div>
-        <p>Danial Dan</p>
-        <p>danial@moe.gov.my</p>
-      </div>
-    </div>
-  </aside>
-  
+
   <div class="main-content">
     <div class="edtgrnd">
     <h1>Edit Video Information</h1>
     <div class="video-preview">
-      <img src="video4.webp" alt="Video Preview" class="video-preview-img">
+      <img src="/css/images/video4.webp" alt="Video Preview" class="video-preview-img">
     </div>
     <form class="edit-video-form">
       
@@ -62,13 +39,13 @@
       <div class="form-group">
         <label for="video-thumbnail">Thumbnail</label>
         <div class="thumbnail-preview">
-          <img src="video4.webp" alt="Video Thumbnail" id="thumbnail-preview-img" class="thumbnail-image">
+          <img src="/css/images/video4.webp" alt="Video Thumbnail" id="thumbnail-preview-img" class="thumbnail-image">
           <input type="file" id="video-thumbnail" accept="image/*">
         </div>
       </div>
       
       <div class="form-actions">
-        <a href="ManageContent.html"> <div type="button" class="cancel-btn" style="text-underline-offset: none">Cancel</div></a>
+        <a th:href="@{/content}"> <div type="button" class="cancel-btn" style="text-underline-offset: none">Cancel</div></a>
         <button type="submit" class="confirm-btn">Confirm Edit</button>
       </div>
     
