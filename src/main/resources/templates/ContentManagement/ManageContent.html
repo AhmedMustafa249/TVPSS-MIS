@@ -15,6 +15,22 @@
       
       <!-- Left: Video Gallery -->
       <div class="video-gallery">
+        <tr th:each="school, iterStat : ${schools}">
+          <td th:text="${iterStat.count}">1</td>
+          <td th:text="${school.getSchoolCode()}">JBA3002</td>
+          <td th:text="${school.getSchoolName()}">SEKOLAH KEBANGSAAN (FELDA) BUKIT WAHA</td>
+          <td th:text="${school.getAddress()}">KOTA TINGGI</td>
+          <td>
+            <span th:class="'version version-' + ${school.getVersion()}" th:text="'Version ' + ${school.version}">Version 4</span>
+          </td>
+          <td>
+            <a th:href="${school.getYoutubeChannelLink()}" th:text="${school.getYoutubeChannelLink()}">SKBW TV</a>
+          </td>
+          <td>25-04-2024</td>
+          <td>
+            <a th:href="@{'/schools/school-details/' + ${school.id}}" class="view-btn">View</a>
+          </td>
+        </tr>
         <div class="video-card" onclick="showPreview('/css/images/video1.jpg', 'Introduction to MIS Systems', 'Learn about the basics of MIS systems in this introductory video.')">
           <img src="/css/images/video1.jpg" alt="Video 1" class="video-thumbnail">
           <p class="video-title">Introduction to MIS Systems</p>

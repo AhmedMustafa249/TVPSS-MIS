@@ -1,5 +1,6 @@
 package com.example.tvpssmis4.controller;
 
+import com.example.tvpssmis4.model.SchoolInformation;
 import com.example.tvpssmis4.model.User;
 import com.example.tvpssmis4.model.Video;
 import com.example.tvpssmis4.repository.UserRepository;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/gpm")
@@ -62,7 +65,8 @@ public class GPMController {
 
     @GetMapping("/content")
     public String content(Model model, HttpSession session) {
-
+            List<Video> videos = videoService.getAllVideos();
+        model.addAttribute("videos", videos);
             return "/GPM/ManageContent";
 
     }
@@ -77,8 +81,12 @@ public class GPMController {
     @PostMapping("/upload_content")
     public String uploadContent(@ModelAttribute Video video, Model model, HttpSession session) {
         videoService.addVideo(video);
-        return "/GPM/UploadContent";
+        return "/GPM/ManageContent";
+    }
 
+    @GetMapping("/uploadContent")
+    public String showUploadContentPage(Model model) {
+        return "/GPM/UploadContent";
     }
 
 
