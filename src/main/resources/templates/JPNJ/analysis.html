@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analysis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/dashboardStyles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- For Pie Chart -->
+</head>
+<body>
+<div th:replace="~{fragments/jpnj-sidebar  :: sidebar}"></div>
+  <div class="main-content">
+    <div class="breadcrumbs">
+      <span>Dashboard</span> > <span>Analysis</span>
+    </div>
+    <h1>Dashboard</h1>
+    <div class="tabs">
+      <a href="/jpnj/dashboard">School Information</a>
+      <a href="/jpnj/dashboard/report">Report</a>
+      <a href="/jpnj/dashboard/analysis" class="active">Analysis</a>
+    </div>    
+    <div class="analysis-content">
+      <!-- Left Side: Card Container -->
+      <div class="card-container">
+        <div class="card">
+          <h3>Total Schools</h3>
+          <p class="big-number" th:text="${totalSchools}">206</p>
+          <p>Since last month</p>
+        </div>
+        <div class="card">
+          <h3>Version 4</h3>
+          <p class="big-number" th:text="${version4Count}">80</p>
+          <p>Since last month</p>
+        </div>
+        <div class="card">
+          <h3>Version 3</h3>
+          <p class="big-number" th:text="${version3Count}">100</p>
+          <p>Since last month</p>
+        </div>
+        <div class="card">
+          <h3>Version 2</h3>
+          <p class="big-number" th:text="${version2Count}">20</p>
+          <p>Since last week</p>
+        </div>
+        <div class="card">
+          <h3>Version 1</h3>
+          <p class="big-number" th:text="${version1Count}">5</p>
+          <p>Since last month</p>
+        </div>
+        <div class="card">
+          <h3>Version 0</h3>
+          <p class="big-number" th:text="${version0Count}">1</p>
+          <p>Since last month</p>
+        </div>
+      </div>
+</body>
+</html>

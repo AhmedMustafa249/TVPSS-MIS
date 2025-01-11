@@ -9,10 +9,10 @@ body {
     display: flex;
     width: 100%;
 }
-  
+
 .sidebar {
     width: 250px;
-    background: url('sidebar-bg.png') no-repeat center center; /* Sidebar background image */
+    background: url('images/sidebar-bg.png') no-repeat center center; /* Sidebar background image */
     background-size: cover; /* Ensures the image covers the entire sidebar */
     color: #fff;
     display: flex;
@@ -25,9 +25,9 @@ body {
 /* .sidebar .logo {
     font-size: 24px;
     font-weight: bold;
-    padding: 10px; 
+    padding: 10px;
     text-align: center;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
 } */
 
 .sidebar .logo {
@@ -47,43 +47,43 @@ body {
     object-fit: contain; /* Ensures the logo maintains its aspect ratio */
 }
 
-  
+
 .sidebar nav ul {
     list-style: none;
     padding: 0;
     margin: 0; /* Ensure no extra space around the nav */
 }
-  
+
 .sidebar nav ul li {
     padding: 10px 15px; /* Reduced padding for compact layout */
     margin-bottom: 5px; /* Space between items */
 }
-  
+
 .sidebar nav ul li.active,
 .sidebar nav ul li:hover {
     background-color: #4256D0;
 }
-  
+
 .sidebar nav ul li a {
     text-decoration: none;
     color: #fff;
     display: block;
 }
-  
+
 .sidebar .user-info {
     display: flex;
     align-items: center;
     padding: 10px; /* Reduced padding */
     margin-top: auto; /* Anchors to the bottom of the sidebar */
 }
-  
+
 .sidebar .user-info .profile-pic {
     border-radius: 50%;
     width: 50px;
     height: 50px;
     margin-right: 10px;
 }
-  
+
 .content {
     flex: 1;
     padding: 20px;

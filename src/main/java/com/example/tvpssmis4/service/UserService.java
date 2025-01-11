@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 @Service
 public class UserService {
 
@@ -56,6 +58,22 @@ public class UserService {
             return false;
         }
     }
+
+    public User getUserById(Long id) {
+        return userRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("User not found with ID: " + id));
+    }
+
+
+    public List<User> getAllUsers() {
+        return userRepository.findAll(); // Fetches all users from the database
+    }
+
+    public void updateUser(User user) {
+        userRepository.save(user); // Save the updated user in the database
+    }
+
+
 
 
 }

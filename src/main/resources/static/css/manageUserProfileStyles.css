@@ -14,7 +14,7 @@ body {
 
 .sidebar {
     width: 250px;
-    background: url('sidebar-bg.png') no-repeat center center; /* Sidebar background image */
+    background: url('images/sidebar-bg.png') no-repeat center center; /* Sidebar background image */
     background-size: cover; /* Ensures the image covers the entire sidebar */
     color: #fff;
     display: flex;
