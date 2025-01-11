@@ -114,7 +114,7 @@
         <h2>Add New Report</h2>
         <button class="close-btn" onclick="closeAddReportModal()">X</button>
       </div>
-      <form th:action="@{/jpnj/dashboard/report/add}" method="post">
+      <form  method="POST" th:action="@{/jpnj/dashboard/report/add}">
         <div class="modal-body">
           <label for="reportName">Report Name:</label>
           <input type="text" id="reportName" name="reportName" placeholder="Enter Report Name" required />

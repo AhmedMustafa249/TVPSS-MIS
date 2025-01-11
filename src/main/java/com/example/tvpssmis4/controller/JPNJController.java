@@ -87,8 +87,8 @@ public class JPNJController {
         return "JPNJ/report"; // Points to the report.html view for JPNJ
     }
 
-    @PostMapping("/jpnj/dashboard/report/add")
-    public String addReport(@RequestParam("reportName") String reportName, HttpSession session) {
+    @PostMapping("/dashboard/report/add")
+    public String addNewReport(@RequestParam("reportName") String reportName, HttpSession session) {
         if (session.getAttribute("role") == null || !session.getAttribute("role").equals("JPNJ")) {
             return "redirect:/login";
         }
