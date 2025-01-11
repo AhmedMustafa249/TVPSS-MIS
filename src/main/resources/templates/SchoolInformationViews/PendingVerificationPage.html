@@ -10,7 +10,7 @@
 <body>
 <div th:insert="fragments/GPM-sidebar :: sidebar"></div>
 <div class="main-content">
-    <h1>Hello, Daniel.</h1>
+    <h1>Hello, <span th:text="${user.username}"></span> Your School Information is being verified.</h1>
     <div class ="school-form" style="margin-top: 50px;">
         <div class="content">
             <div class="spinner"></div>

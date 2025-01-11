@@ -33,6 +33,8 @@ public class JPNJController {
         }
 
         model.addAttribute("username", session.getAttribute("username"));
+        List<SchoolInformation> schools = schoolInformationService.getAllSchools();
+        model.addAttribute("schools", schools);
         return "JPNJ/dashboard";
     }
 
