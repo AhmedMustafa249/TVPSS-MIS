@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.example.tvpssmis4.repository.UserRepository;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -59,7 +60,7 @@ public class AuthController {
             return switch (user.getRole()) {
                 case "GPM" -> "redirect:/gpm/dashboard";
                 case "PPD" -> "redirect:/ppd/dashboard";
-                case "JPNJ" -> "redirect:/jpnj/dashboard";
+                case "JPNJ" -> "redirect:/jpnj/home";
                 default -> "redirect:/dashboard";
             };
         }
@@ -102,6 +103,37 @@ public class AuthController {
         }
         return "UserAuthenticationViews/resetPassword"; // Return to the same page with a success or error message
     }
+
+    @GetMapping("/jpnj/manage-users")
+    public String manageUsers(Model model) {
+        // Fetch all users or modify this to fetch unvalidated users only
+        List<User> users = userService.getAllUsers();
+        model.addAttribute("users", users);
+        return "JPNJ/manageUsers"; // Path to your Thymeleaf template
+    }
+
+    @GetMapping("/jpnj/dashboard/manage-users/view/{id}")
+    public String viewUserProfile(@PathVariable Long id, Model model) {
+        // Fetch the user by ID
+        User user = userService.getUserById(id);
+        model.addAttribute("user", user);
+        return "JPNJ/manageUserProfile"; // Path to the Thymeleaf template
+    }
+
+    @PostMapping("/jpnj/dashboard/manage-users/update/{id}")
+    public String updateUserProfile(@PathVariable Long id, @RequestParam String username, @RequestParam String email,
+                                    @RequestParam String phone, @RequestParam String role) {
+        User user = userService.getUserById(id);
+        user.setUsername(username);
+        user.setEmail(email);
+        user.setPhoneNumber(phone);
+        user.setRole(role);
+
+        userService.updateUser(user); // Save the updated user
+        return "redirect:/jpnj/dashboard/manage-users";
+    }
+
+
 
 
 

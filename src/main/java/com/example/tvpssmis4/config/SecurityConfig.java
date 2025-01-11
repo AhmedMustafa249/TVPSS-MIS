@@ -19,6 +19,13 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers("/**").permitAll() // Allow all requests for now
                 .and()
+                .logout()
+                .logoutUrl("/logout") // The URL for logging out
+                .logoutSuccessUrl("/login?logout") // Redirect after successful logout
+                .invalidateHttpSession(true) // Invalidate the session
+                .deleteCookies("JSESSIONID") // Delete session cookie
+                .permitAll()
+                .and()
                 .headers().frameOptions().disable();  // For H2 console
 
         return http.build();
