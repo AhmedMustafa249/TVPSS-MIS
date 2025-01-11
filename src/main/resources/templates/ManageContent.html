@@ -1,36 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manage Content</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<html xml:th="http://thymeleaf.org" lang="en">
+<head th:replace="~{fragments/layout :: head('Content')}">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <aside class="sidebar">
-    <div class="logo">
-      <img src="TVPSS Logo.png" alt="Logo" class="logo-img"> 
-      <span>TVPSS MIS</span>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Dashboard</a></li>
-        <li class="active"><a href="#">Content</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">Logout</a></li>
-      </ul>
-    </nav>
-    <div class="user-info">
-      <img src="pfp.webp" alt="Profile Picture" class="profile-pic">
-      <div>
-        <p>Danial Dan</p>
-        <p>danial@moe.gov.my</p>
-      </div>
-    </div>
-  </aside>
+
+<div th:replace="~{fragments/layout :: sidebar}"></div>
 
   <div class="main-content">
     <a href="UploadContent.html" class="upload-btn">Upload Content</a>
@@ -88,7 +63,7 @@
         <h3 class="preview-title">Select a video to preview</h3>
         <p class="preview-description">Click on a video from the list to see more details about it.</p>
         <div class="preview-buttons">
-          <a href="EditContent.html" class="edit-btn" style="text-align: center;";">Edit</a>
+          <a href="EditContent.html" class="edit-btn" style="text-align: center;">Edit</a>
           <button class="delete-btn">Delete</button>
         </div>
       </div>
