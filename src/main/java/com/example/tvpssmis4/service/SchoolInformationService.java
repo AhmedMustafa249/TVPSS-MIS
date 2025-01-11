@@ -58,7 +58,12 @@ public class SchoolInformationService {
                 .toList();
     }
 
-    public void verifyStatus(SchoolInformation school) {
+    public SchoolInformation verifyStatus(Long id) {
+
+        SchoolInformation school = repository.findById(id).orElse(null);
         school.setVerified(true);
+
+        return repository.save(school);
     }
+
 }

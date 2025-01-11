@@ -113,4 +113,17 @@ public class JPNJController {
         reportService.deleteReport(id);
         return "redirect:/jpnj/dashboard/report";
     }
+
+    @GetMapping("/schools")
+    public String showSchoolsList(Model model, HttpSession session) {
+        List<SchoolInformation> schools = schoolInformationService.getAllSchools();
+        model.addAttribute("schools", schools);
+        return "JPNJ/schoolsPage";
+    }
+
+    @GetMapping("/schools/verify/{id}")
+    public String verifySchool(@PathVariable Long id, Model model) {
+        schoolInformationService.verifyStatus(id);
+        return "redirect:/jpnj/schools";
+    }
 }

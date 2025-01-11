@@ -5,4 +5,5 @@ import com.example.tvpssmis4.model.SchoolInformation;
 
 public interface SchoolInformationRepository extends JpaRepository<SchoolInformation, Long> {
 
+
 }
