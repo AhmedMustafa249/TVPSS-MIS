@@ -1,0 +1,56 @@
+<!-- fragments/sidebar.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<link rel="stylesheet" href="/css/sidebarStyles.css">
+<body>
+<aside th:fragment="sidebar" class="sidebar">
+  <div class="logo">
+    <img src="/css/images/TVPSS-Logo.png" alt="Logo" />
+    <span>TVPSS MIS</span>
+  </div>
+  <nav>
+    <ul>
+      <li>
+        <a href="/gpm/home">
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="/gpm/dashboard">
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="/gpm/content">
+          <span>Content</span>
+        </a>
+      </li>
+      <li>
+        <a href="/gpm/profile">
+          <span>Profile</span>
+        </a>
+      </li>
+      <li>
+        <a href="/gpm/settings">
+          <span>Settings</span>
+        </a>
+      </li>
+      <li>
+        <a href="/logout">
+          <span>Logout</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="user-info">
+    <img src="/css/images/pfp.webp" alt="Profile Picture" class="profile-pic" />
+    <div>
+      <p>Name:</p>
+      <p>Role:</p>
+    </div>
+  </div>
+</aside>
+
+</body>
+</html>

@@ -54,6 +54,7 @@ public class AuthController {
             // Store user info in session
             session.setAttribute("userId", user.getId());
             session.setAttribute("username", user.getUsername());
+            session.setAttribute("email", user.getEmail());
             session.setAttribute("role", user.getRole());
 
             // Redirect based on role

@@ -1,7 +1,12 @@
 package com.example.tvpssmis4.controller;
 
 import com.example.tvpssmis4.model.SchoolInformation;
+import com.example.tvpssmis4.model.User;
+import com.example.tvpssmis4.repository.UserRepository;
 import com.example.tvpssmis4.service.SchoolInformationService;
+import com.example.tvpssmis4.service.UserService;
+import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
@@ -16,7 +21,11 @@ import java.util.List;
 @RequestMapping("/schools")
 public class SchoolInformationController {
 
+    @Autowired
+    private UserRepository userRepository;
+
     private final SchoolInformationService service;
+
 
     public SchoolInformationController(SchoolInformationService service) {
         this.service = service;
@@ -26,7 +35,7 @@ public class SchoolInformationController {
     @GetMapping("/enter")
     public String showEnterSchoolInformationPage(Model model) {
         model.addAttribute("Message", "School Information");
-        return "SchoolInformationViews/EnterSchoolInformationPage"; // Name of the HTML file in templates directory
+        return "/GPM/enter_school_information"; // Name of the HTML file in templates directory
     }
 
     @GetMapping
@@ -35,30 +44,47 @@ public class SchoolInformationController {
     }
 
     @PostMapping("/save_new_school")
-    public String saveNewSchoolInformation(@ModelAttribute SchoolInformation school) {
+    public String saveNewSchoolInformation(@ModelAttribute SchoolInformation school, HttpSession session) {
+        String email = (String) session.getAttribute("email");
+        String username = (String) session.getAttribute("username");
+
+        User user = userRepository.findByUsernameOrEmail(username, email);
+        if (user == null) {
+            // Handle case where user is not found
+            throw new RuntimeException("User not found");
+        }
+
         school.updateVersion();
+        user.setSchoolInformation(school);
         service.createOrUpdateSchool(school);
-        return "redirect:/schools/pendingSchool";
+        return "redirect:/gpm/dashboard";
     }
 
     @PostMapping("/save")
-    public String saveSchoolInformation(@ModelAttribute SchoolInformation school, Model model) {
-        school.updateVersion();
-        service.createOrUpdateSchool(school);
-        return "redirect:/schools/display/" + school.getId();
+    public String saveSchoolInformation(@ModelAttribute SchoolInformation school, Model model, HttpSession session) {
+        String email = (String) session.getAttribute("email");
+        String username = (String) session.getAttribute("username");
+        User user = userRepository.findByUsernameOrEmail(username, email);
+        SchoolInformation existingSchool = user.getSchoolInformation();
+        school.setId(existingSchool.getId());
+        service.updateSchool(school);
+        user.setSchoolInformation(school);
+        return "redirect:/schools/display";
     }
 
 
-    @GetMapping("/display/{id}")
-    public String showDisplaySingleSchoolInformationPage(@PathVariable Long id, Model model) {
+    @GetMapping("/display")
+    public String showDisplaySingleSchoolInformationPage(@ModelAttribute SchoolInformation school, Model model, HttpSession session) {
         // Fetch the school by its ID
-        SchoolInformation school = service.getSchoolById(id);
+        String email = (String) session.getAttribute("email");
+        String username = (String) session.getAttribute("username");
+        User user = userRepository.findByUsernameOrEmail(username, email);
 
         // Add the school to the model
-        model.addAttribute("school", school);
+        model.addAttribute("user", user);
 
         // Return the Thymeleaf template
-        return "SchoolInformationViews/DisplaySchoolInfoPage"; // Name of the HTML file in templates directory
+        return "redirect:/gpm/dashboard"; // Name of the HTML file in templates directory
     }
 
     @GetMapping("/{id}")
@@ -86,9 +112,9 @@ public class SchoolInformationController {
     @GetMapping("/pendingSchool")
     public String showPendingVerificationPage(@ModelAttribute SchoolInformation school) {
         if (!school.isVerified()) {
-            return "SchoolInformationViews/PendingVerificationPage";
+            return "redirect:/gpm/dashboard";
         }else{
-            return "home";
+            return "/home";
         }
     }
 
@@ -103,4 +129,19 @@ public class SchoolInformationController {
         return "AdminAnalyticsViews/SchoolDetails"; // Ensure this matches the file location
     }
 
+    @GetMapping("/edit")
+    public String showEditSchoolPage(@ModelAttribute SchoolInformation school,Model model, HttpSession session) {
+        String email = (String) session.getAttribute("email");
+        String username = (String) session.getAttribute("username");
+        User user = userRepository.findByUsernameOrEmail(username, email);
+        model.addAttribute("user", user);
+        return "GPM/edit_school_information";
+    }
+
+//    @GetMapping("/edit")
+//    public String showEditSchoolPage(@PathVariable Long id) {
+//        User user = userRepository.findByUsernameOrEmail(username, email);
+//        model.addAttribute("user", user);
+//        return "SchoolInformationViews/EditSchoolInformationPage";
+//    }
 }

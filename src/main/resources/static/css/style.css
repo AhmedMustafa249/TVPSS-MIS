@@ -1,0 +1,835 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+  }
+  
+  h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+  }
+  
+
+  .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu {
+    padding: 15px 20px;
+  }
+  
+  .menu {
+    text-decoration: none;
+    color: white;
+    display: block;
+  }
+  
+  .upload-box{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color:#ffffff;
+    opacity: 90%;
+    position:fixed;
+    inset: 0px;
+    width: 70%;
+    height: 70%;
+    border-radius: 35px;
+   
+    transition: width 0.2s, height 0.2s, background-color 0.2s, border-radius 0.2s ease-out;
+    margin: auto;
+
+    z-index:1001;
+}
+
+/* Upldgrnd container */
+.upldgrnd {
+  width: 70%;
+  position: fixed;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: grid;
+  z-index: 1000;
+  grid-template-columns: 1fr 1fr; /* Two columns: Video and Form */
+  gap: 20px; /* Space between columns */
+}
+
+.upldgrnd h1 {
+  grid-column: span 2; /* Make title span both columns */
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Video preview */
+.video-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-preview img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+  object-fit: cover;
+  height: auto;
+}
+
+/* Form styling */
+.edit-video-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: #555;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 8px 10px; /* Smaller padding */
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-group textarea {
+  resize: none;
+  height: 80px; /* Reduce height of the description */
+}
+
+.form-group select {
+  height: 38px; /* Ensure the select has a consistent height */
+}
+
+/* Thumbnail Preview */
+.thumbnail-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.thumbnail-preview img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.thumbnail-preview input {
+  width: 100%;
+  font-size: 12px;
+  padding: 6px;
+}
+
+/* Form buttons */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cancel-btn,
+.confirm-btn {
+  padding: 8px 16px; /* Reduce padding */
+  font-size: 14px; /* Smaller font size */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background-color: #ccc;
+  color: #333;
+}
+
+.confirm-btn {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.cancel-btn:hover {
+  background-color: #bbb;
+}
+
+.confirm-btn:hover {
+  background-color: #0056b3;
+}
+
+.upload-box:hover{
+  background-color:#ffffff;
+  opacity: 1;
+  width: 80%;
+  height: 80%;
+  border-radius: 0;
+}
+
+.cncl-btn {
+  position: absolute; /* Position relative to the upload-box */
+  bottom: 20px; /* Distance from bottom */
+  right: 20px; /* Distance from right */
+  padding: 10px 20px; 
+  background-color: #8282827a; /* Blue background */
+  color: white; 
+  border: none; 
+  border-radius: 8px; 
+  font-size: 16px; 
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, box-shadow 0.3s;
+  z-index: 1002;
+}
+
+.cncl-btn:hover {
+  background-color: #b53131; /* Brighter blue on hover */
+ 
+  color: #fff; /* Keep text white */
+}
+
+/* Two-column layout */
+.content-container {
+  display: flex;
+  width: 100%;
+  height: 80vh; /* Set a height so the content is scrollable */
+}
+
+.video-gallery {
+  width: 55%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  overflow-y: auto; /* Scrollable */
+  padding: 20px;
+  max-height: 100%; /* Ensures it stays scrollable */
+}
+
+/* Preview Section Styling */
+.preview-section {
+  margin-left: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribute content vertically */
+  height: 100%;
+}
+
+/* For the video preview */
+.video-preview-img {
+  width: 100%;  /* Adjust width to be responsive */
+  max-width: 300px; /* Limit the size */
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 15px; 
+  border-radius: 8px;
+}
+
+/* For the thumbnail preview */
+.thumbnail-image {
+  width: 100px;  /* Set the width of the preview image */
+  height: 80px; /* Keep the height consistent */
+  object-fit: cover; /* Ensure the image covers the area without distortion */
+  
+}
+
+
+.preview-thumbnail {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.preview-title, .preview-description {
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* Styling for the buttons (Edit and Delete) */
+.preview-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto; /* Push the buttons to the bottom */
+  gap: 20px;
+}
+
+.edit-btn, .delete-btn {
+  background-color: #8e3e3e; /* Color to match the theme */
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  flex: 1;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+  background-color: #4c1c1c; /* Lighter shade on hover */
+  transform: scale(1.05);
+}
+
+.edit-btn:focus, .delete-btn:focus {
+  outline: none; /* Remove focus outline */
+}
+
+
+
+.video-card {
+  width: calc(50% - 20px); /* 2 cards per row */
+  aspect-ratio: 16 / 9; /* Perfect 16:9 aspect ratio */
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.video-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+}
+
+.video-thumbnail {
+  width: 100%;
+  height: 100%; /* Maintains 16:9 aspect ratio */
+  object-fit: cover;
+}
+
+.video-title {
+  font-size: 14px;
+  color: #333;
+  padding: 10px 15px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.main-content h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.upload-btn {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  background-color: #433e8e; /* Color similar to primary button color */
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.upload-btn:hover {
+  background-color: #3639ef; /* Lighter shade on hover */
+  transform: scale(1.05);
+}
+
+.upload-btn:focus {
+  outline: none; /* Remove focus outline */
+}
+
+.main-content {
+  position: relative; /* To ensure the button positions correctly */
+  padding: 30px;
+}
+
+
+  .overlay{
+    opacity:0.5;
+    background-color:#000000;
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    z-index:1000;
+}
+  
+  .info-box {
+    margin-top: 20px;
+    padding: 300px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .info-box p {
+    font-size: 16px;
+    color: #6b7280;
+  }
+  
+  .info-box button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .info-box button:hover {
+    background-color: #2563eb;
+  }
+
+
+  
+  h1 {
+    font-size: 22px;
+    color: #333;
+  }
+  
+  .note {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #6b7280;
+  }
+  
+  .required {
+    color: red;
+  }
+  
+  /* Form Styles */
+  .school-form {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #374151;
+  }
+  
+  .form-group input, 
+  .form-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+  }
+  
+  .form-group input:focus, 
+  .form-group select:focus {
+    outline: none;
+    border-color: #3b82f6;
+  }
+  
+  .checkboxes {
+    align-items: left;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+  }
+  
+  .checkboxes label {
+    margin-left: 5px;
+    font-size: 14px;
+  }
+  
+  .form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .confirm {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .confirm:hover {
+    background-color: #2563eb;
+  }
+  
+  .cancel {
+    background-color: #f3f4f6;
+    border: 1px solid #d1d5db;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .cancel:hover {
+    background-color: #e5e7eb;
+  }
+  
+  .upload-logo {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .upload-logo:hover {
+    background-color: #2563eb;
+  }
+  
+ 
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    background-color: #f3f4f6;
+  }
+
+  /* Style for edtgrnd */
+.edtgrnd {
+  background-color: white; /* White background */
+  padding: 20px; /* Add some padding for spacing inside the div */
+  border-radius: 10px; /* Optional: rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for visual effect */
+  transform: scale(0.8); /* Scale the div to 80% of its original size */
+  transform-origin: top center; /* Keep scaling anchored from the top center */
+  width: 100%; /* Ensure it fills the parent container's width */
+  max-width: 1200px; /* Optional: Limit the maximum width to make it look better */
+  margin: 0 auto; /* Center the div horizontally */
+}
+
+/* Style for form elements inside edtgrnd */
+.edtgrnd .edit-video-form {
+  width: 80%; /* Limit the form width to 80% of the parent */
+  margin: 0 auto; /* Center the form horizontally */
+}
+
+/* Adjust form inputs, textareas, and select elements */
+.edtgrnd .edit-video-form .form-group {
+  margin-bottom: 15px; /* Add some space between form groups */
+}
+
+.edtgrnd .edit-video-form input[type="text"],
+.edtgrnd .edit-video-form textarea,
+.edtgrnd .edit-video-form select {
+  width: 100%; /* Make input elements take full width of their container */
+  max-width: 500px; /* Limit the maximum width of inputs */
+  padding: 10px; /* Add padding inside inputs for better appearance */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 5px; /* Rounded corners for inputs */
+  font-size: 1rem; /* Font size adjustment for readability */
+}
+
+/* Adjust the image preview and file input */
+.edtgrnd .edit-video-form .thumbnail-preview {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.edtgrnd .edit-video-form .thumbnail-preview img {
+  width: 50px; /* Smaller thumbnail preview size */
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.edtgrnd .edit-video-form .thumbnail-preview input[type="file"] {
+  padding: 5px;
+}
+
+/* Adjust buttons to match the form's width */
+.edtgrnd .edit-video-form .form-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edtgrnd .edit-video-form .form-actions button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.edtgrnd .edit-video-form .form-actions .cancel-btn {
+  background-color: #f0f0f0;
+}
+
+.edtgrnd .edit-video-form .form-actions .confirm-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+  
+  .main-content2 {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 10px 20px 10px;
+    background-color: #f3f4f6;
+  }
+
+  h1 {
+    font-size: 22px;
+    color: #333;
+  }
+  
+  .note {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #6b7280;
+  }
+  
+  .required {
+    color: red;
+  }
+  
+  /* Form Styles */
+  .school-form {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 1500px;
+    width: 100%;
+  }
+  
+  .form-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .form-left, .form-right {
+    padding:20px;
+    flex: 1;
+  }
+  
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #374151;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: #3b82f6;
+  }
+  
+  /* Checkbox Group */
+
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+    font-size: 14px;
+    color: #374151;
+  }
+  
+  .checkbox-container input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    accent-color: #3b82f6; /* Customize checkbox color */
+  }
+ 
+  
+  .info-form {
+    width: 100%;
+    max-width: 1500px;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+  }
+  
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .info-group {
+    flex: 1;
+    padding:10px;
+  }
+  
+  .info-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .info-group input {
+    width: 95%;
+    padding: 8px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #f3f4f6;
+    color: #6b7280;
+  }
+  
+  .info-group input[readonly] {
+    cursor: not-allowed;
+  }
+  
+  /* Form Actions */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.left-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.right-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.confirm-btn, .cancel-btn, .upload-logo-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.confirm-btn {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.confirm-btn:hover {
+  background-color: #2563eb;
+}
+
+.cancel-btn {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+.cancel-btn:hover {
+  background-color: #d1d5db;
+}
+
+.upload-logo-btn {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.upload-logo-btn:hover {
+  background-color: #2563eb;
+}
+
+  
+  .edit-btn {
+    padding: 10px 20px;
+    background-color: #a5a5a5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .edit-btn:hover {
+    background-color: #2563eb;
+  }
+
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    flex-direction: column;
+}
+
+.content .spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #536DFF;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.content .status {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #536DFF;
+}

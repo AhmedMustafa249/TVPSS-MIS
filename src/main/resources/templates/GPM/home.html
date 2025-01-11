@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TVPSS MIS</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/HomePage.css">
 </head>
 <body>
 <div th:insert="fragments/GPM-sidebar :: sidebar"></div>
 <div class="main-content">
-    <h1>Hello, Daniel.</h1>
+    <h1 th:text="'Hello ' + ${username} + ', Welcome to the TVPSS main website!'">Default Welcome Message</h1>
     <div class="info-box">
-        <p>School Information incomplete</p>
-        <button>Add School Information +</button>
+        <img src ="/css/images/TVPSS-Home.png" class="ContentImg">
     </div>
 </div>
 </body>
