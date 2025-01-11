@@ -8,28 +8,7 @@
     <link rel="stylesheet" href="/css/SchoolInfoStyles.css">
 </head>
 <body>
-<aside class="sidebar">
-    <div class="logo">
-        <img src="/css/images/TVPSS-Logo.png" alt="Logo" class="logo-img">
-        <span>TVPSS MIS</span>
-    </div>
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li class="active"><a href="#">Dashboard</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Logout</a></li>
-        </ul>
-    </nav>
-    <div class="user-info">
-        <img src="/css/images/pfp.webp" alt="Profile Picture" class="profile-pic">
-        <div>
-            <p>Danial Dan</p>
-            <p>danial@moe.gov.my</p>
-        </div>
-    </div>
-</aside>
+<div th:insert="fragments/GPM-sidebar :: sidebar"></div>
 <div class="main-content">
     <h1>Enter School Information:</h1>
     <p class="note">Required inputs have label: <span class="required">*</span></p>
