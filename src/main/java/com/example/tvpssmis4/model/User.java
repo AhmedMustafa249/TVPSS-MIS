@@ -32,7 +32,7 @@ public class User {
     private String role;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "schoolId", referencedColumnName = "id")
+    @JoinColumn(name = "school_Id", referencedColumnName = "id")
     private SchoolInformation schoolInformation;
 
     // Getters and setters
