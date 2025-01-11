@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xml:th="http://thymeleaf.org" lang="en">
+<head th:replace="~{fragments/layout :: head('Home')}">
+
+</head>
+<body>
+<link rel="stylesheet" href="/css/style.css">
+<div th:insert="fragments/GPM-sidebar :: sidebar"></div>
+
+  <div class="main-content">
+    <a href="/gpm/upload_content" class="upload-btn">Upload Content</a>
+    <h1>Your Uploaded Videos</h1>
+    
+    <div class="content-container">
+      
+      <!-- Left: Video Gallery -->
+      <div class="video-gallery">
+        <div class="video-card" onclick="showPreview('/css/images/video1.jpg', 'Introduction to MIS Systems', 'Learn about the basics of MIS systems in this introductory video.')">
+          <img src="/css/images/video1.jpg" alt="Video 1" class="video-thumbnail">
+          <p class="video-title">Introduction to MIS Systems</p>
+        </div>
+
+        <div class="video-card" onclick="showPreview('/css/images/video2.jpeg', 'How to Create School Reports', 'A detailed guide on how to create effective school reports.')">
+          <img src="/css/images/video2.jpeg" alt="Video 2" class="video-thumbnail">
+          <p class="video-title">How to Create School Reports</p>
+        </div>
+
+        <div class="video-card" onclick="showPreview('/css/images/video3.jpeg', 'Teacher\'s Guide to Content Upload', 'Step-by-step tutorial on uploading content for teachers.')">
+          <img src="/css/images/video3.jpeg" alt="Video 3" class="video-thumbnail">
+          <p class="video-title">Teacher's Guide to Content Upload</p>
+        </div>
+
+        <div class="video-card" onclick="showPreview('/css/images/video4.webp', 'Live Streaming Guide', 'A comprehensive guide to live streaming your school events.')">
+          <img src="/css/images/video4.webp" alt="Video 4" class="video-thumbnail">
+          <p class="video-title">Live Streaming Guide</p>
+        </div>
+        
+        <div class="video-card" onclick="showPreview('/css/images/video1.jpg', 'Introduction to MIS Systems', 'Learn about the basics of MIS systems in this introductory video.')">
+          <img src="/css/images/video1.jpg" alt="Video 1" class="video-thumbnail">
+          <p class="video-title">Introduction to MIS Systems</p>
+        </div>
+
+        <div class="video-card" onclick="showPreview('/css/images/video3.jpeg', 'Teacher\'s Guide to Content Upload', 'Step-by-step tutorial on uploading content for teachers.')">
+          <img src="/css/images/video3.jpeg" alt="Video 3" class="video-thumbnail">
+          <p class="video-title">Teacher's Guide to Content Upload</p>
+        </div>
+
+        <div class="video-card" onclick="showPreview('/css/images/video2.jpeg', 'How to Create School Reports', 'A detailed guide on how to create effective school reports.')">
+          <img src="/css/images/video2.jpeg" alt="Video 2" class="video-thumbnail">
+          <p class="video-title">How to Create School Reports</p>
+        </div>
+
+
+
+        
+        <!-- Add more video cards here -->
+      </div>
+
+      <!-- Right: Preview Section -->
+      <div class="preview-section">
+        <h2>Video Preview</h2>
+        <img src="/css/images/placeholder.png" alt="Preview Image" class="preview-thumbnail">
+        <h3 class="preview-title">Select a video to preview</h3>
+        <p class="preview-description">Click on a video from the list to see more details about it.</p>
+        <div class="preview-buttons">
+          <a href="/gpm/edit_content" class="edit-btn" style="text-align: center;">Edit</a>
+          <button class="delete-btn">Delete</button>
+        </div>
+      </div>
+      
+    </div>
+
+  </div>
+
+  <script>
+    function showPreview(imageSrc, title, description) {
+      document.querySelector('.preview-thumbnail').src = imageSrc;
+      document.querySelector('.preview-title').textContent = title;
+      document.querySelector('.preview-description').textContent = description;
+    }
+    
+  </script>
+
+</body>
+</html>
