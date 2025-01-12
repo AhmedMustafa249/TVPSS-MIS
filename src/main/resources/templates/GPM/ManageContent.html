@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xml:th="http://thymeleaf.org" lang="en">
+<head th:replace="~{fragments/layout :: head('Home')}">
+
+</head>
+<body>
+<link rel="stylesheet" href="/css/style.css">
+<div th:insert="fragments/GPM-sidebar :: sidebar"></div>
+
+  <div class="main-content">
+    <a href="/gpm/uploadContent" class="upload-btn">Upload Content</a>
+    <h1>Your Uploaded Videos</h1>
+    
+    <div class="content-container">
+      
+      <!-- Left: Video Gallery -->
+      <div class="video-gallery">
+
+
+
+          <div th:each="video : ${videos}" class="video-card" th:onclick=" 'showPreview(\'' + ${video.thumbnailUrl} + '\'. \'' + +${video.title} + '\',\'' + ${video.description} + '\')'">
+
+          <img th:src="${video.thumbnailUrl}" th:alt="${video.title}"  class="video-thumbnail">
+          <p class="video-title"></p>
+          </div>
+
+
+
+
+
+
+
+
+      </div>
+
+      <!-- Right: Preview Section -->
+      <div class="preview-section">
+        <h2>Video Preview</h2>
+        <img src="/css/images/placeholder.png" alt="Preview Image" class="preview-thumbnail">
+        <h3 class="preview-title">Select a video to preview</h3>
+        <p class="preview-description">Click on a video from the list to see more details about it.</p>
+        <div class="preview-buttons">
+          <a href="/gpm/edit_content" class="edit-btn" style="text-align: center;">Edit</a>
+          <button class="delete-btn">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showPreview(imageSrc, title, description) {
+      console.log("Preview called with:", imageSrc, title, description);
+      document.querySelector('.preview-thumbnail').src = imageSrc;
+      document.querySelector('.preview-title').textContent = title;
+      document.querySelector('.preview-description').textContent = description;
+    }
+    
+  </script>
+
+</body>
+</html>

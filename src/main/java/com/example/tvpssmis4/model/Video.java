@@ -1,35 +1,28 @@
 package com.example.tvpssmis4.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotEmpty;
 
 import java.time.LocalDateTime;
 
-public class Videos {
-    private String id;
+@Entity
+public class Video {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String title;
     private String description;
-    private String thumbnailUrl;
+    private String thumbnailUrl ;
     private String videoUrl;
-    private String uploaderName;
+    private String visibility;
     private LocalDateTime uploadDate;
     private int views;
 
-    public Videos(String id,String title,String description,String thumbnailUrl,String videoUrl,String uploaderName,LocalDateTime uploadDate, int views){
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.thumbnailUrl = thumbnailUrl;
-        this.videoUrl = videoUrl;
-        this.uploaderName = uploaderName;
-        this.uploadDate = uploadDate;
-        this.views = views;
-    }
-    public String getId() {
+
+    public Long getId() {
         return id;
     }
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
     public String getTitle() {
@@ -56,11 +49,11 @@ public class Videos {
     public void setVideoUrl(String videoUrl) {
         this.videoUrl = videoUrl;
     }
-    public String getUploaderName() {
-        return uploaderName;
+    public String getvisibility() {
+        return visibility;
     }
-    public void setUploaderName(String uploaderName) {
-        this.uploaderName = uploaderName;
+    public void setVisibility(String visibility) {
+        this.visibility = visibility;
     }
     public LocalDateTime getUploadDate() {
         return uploadDate;
@@ -77,11 +70,10 @@ public class Videos {
 
     @Override
     public String toString() {
-        return "Videos [id=" + id +
+        return "Video [id=" + id +
                 ", title=" + title + ", description=" + description +
-                ", thumbnailUrl=" + thumbnailUrl + ", videoUrl=" + videoUrl + ", uploaderName=" +
-                uploaderName + ", uploadDate=" + uploadDate + ", views=" + views + "]";
+                ", thumbnailUrl=" + thumbnailUrl + ", videoUrl=" + videoUrl + ", visibility=" +
+                visibility + ", uploadDate=" + uploadDate + ", views=" + views + "]";
     }
 
 }
-

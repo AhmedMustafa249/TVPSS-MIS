@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Content</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <div class="main-content">
+    <div class="edtgrnd">
+    <h1>Edit Video Information</h1>
+    <div class="video-preview">
+      <img src="/css/images/video4.webp" alt="Video Preview" class="video-preview-img">
+    </div>
+    <form class="edit-video-form">
+      
+      <div class="form-group">
+        <label for="video-title">Title</label>
+        <input type="text" id="video-title" value="Sample Video Title" placeholder="Enter video title here" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="video-description">Description</label>
+        <textarea id="video-description" rows="4" placeholder="Enter video description here" required>Sample video description goes here.</textarea>
+      </div>
+      
+      <div class="form-group">
+        <label for="video-visibility">Visibility</label>
+        <select id="video-visibility" required>
+          <option value="public" selected>Public</option>
+          <option value="private">Private</option>
+          <option value="unlisted">Unlisted</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="video-thumbnail">Thumbnail</label>
+        <div class="thumbnail-preview">
+          <img src="/css/images/video4.webp" alt="Video Thumbnail" id="thumbnail-preview-img" class="thumbnail-image">
+          <input type="file" id="video-thumbnail" accept="image/*">
+        </div>
+      </div>
+      
+      <div class="form-actions">
+        <a href="/gpm/content"> <div type="button" class="cancel-btn" style="text-underline-offset: none">Cancel</div></a>
+        <button type="submit" class="confirm-btn">Confirm Edit</button>
+      </div>
+    
+    </form>
+  </div>
+  </div>
+  
+</body>
+</html>
