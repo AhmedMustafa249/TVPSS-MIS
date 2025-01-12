@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users</title>
+    <link rel="stylesheet" href="/css/manageUsersStyles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div th:replace="~{fragments/jpnj-sidebar  :: sidebar}"></div>
+    <main class="content">
+        <h1>Manage Users</h1>
+
+        <table>
+            <thead>
+            <tr>
+                <th>No.</th>
+                <th>School ID</th>
+                <th>School Name</th>
+                <th>School Status</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Dynamically Render Users -->
+            <tr th:each="school, iterStat : ${schools}">
+                <td th:text="${iterStat.count}">1</td>
+                <td th:text="${school.id}">U001</td>
+                <td th:text="${school.schoolName}">danialdan</td>
+                <td th:text="${school.verified}">JPNJ</td>
+                    <td>
+                        <a th:href="@{'/jpnj/schools/verify/' + ${school.id}}" class="btn view">Verify</a>
+                    </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            <!-- Implement pagination dynamically if needed -->
+        </div>
+    </main>
+</div>
+<div class="role-indicator">Role: JPNJ User (State Admin)</div>
+</body>
+</html>

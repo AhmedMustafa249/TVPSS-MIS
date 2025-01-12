@@ -18,7 +18,7 @@
     <!-- Display School Information -->
         <h1>Hello, <span th:text="${user.username}"></span> <span class="wave">👋</span></h1>
         <h2>Your School’s Information:</h2>
-        <form class="info-form" action="/schools/edit">
+        <form class="info-form" method="POST" action="/schools/edit">
             <div class="info-row">
                 <div class="info-group">
                     <label for="school-name">School Name</label>
@@ -70,7 +70,7 @@
                 </div>
             </div>
             <div class="form-actions">
-                <button type="button" class="edit-btn">Edit Information</button>
+                <button type="submit" class="edit-btn">Edit Information</button>
             </div>
         </form>
     </div>

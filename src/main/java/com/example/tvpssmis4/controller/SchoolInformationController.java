@@ -129,7 +129,7 @@ public class SchoolInformationController {
         return "AdminAnalyticsViews/SchoolDetails"; // Ensure this matches the file location
     }
 
-    @GetMapping("/edit")
+    @PostMapping("/edit")
     public String showEditSchoolPage(@ModelAttribute SchoolInformation school,Model model, HttpSession session) {
         String email = (String) session.getAttribute("email");
         String username = (String) session.getAttribute("username");

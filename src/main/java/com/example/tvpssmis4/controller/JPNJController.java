@@ -87,8 +87,8 @@ public class JPNJController {
         return "JPNJ/report"; // Points to the report.html view for JPNJ
     }
 
-    @PostMapping("/jpnj/dashboard/report/add")
-    public String addReport(@RequestParam("reportName") String reportName, HttpSession session) {
+    @PostMapping("/dashboard/report/add")
+    public String addNewReport(@RequestParam("reportName") String reportName, HttpSession session) {
         if (session.getAttribute("role") == null || !session.getAttribute("role").equals("JPNJ")) {
             return "redirect:/login";
         }
@@ -112,5 +112,18 @@ public class JPNJController {
         // Delete the report
         reportService.deleteReport(id);
         return "redirect:/jpnj/dashboard/report";
+    }
+
+    @GetMapping("/schools")
+    public String showSchoolsList(Model model, HttpSession session) {
+        List<SchoolInformation> schools = schoolInformationService.getAllSchools();
+        model.addAttribute("schools", schools);
+        return "JPNJ/schoolsPage";
+    }
+
+    @GetMapping("/schools/verify/{id}")
+    public String verifySchool(@PathVariable Long id, Model model) {
+        schoolInformationService.verifyStatus(id);
+        return "redirect:/jpnj/schools";
     }
 }

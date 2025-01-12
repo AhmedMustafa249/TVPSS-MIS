@@ -21,16 +21,22 @@
                     <span>Dashboard</span>
                 </a>
             </li>
-            <li th:classappend="${currentURI == '/jpnj/profile'} ? 'active'">
-                <a href="/jpnj/profile">
-                    <span>Profile</span>
-                </a>
-            </li>
             <li th:classappend="${currentURI == '/jpnj/user'} ? 'active'">
                 <a href="/jpnj/manage-users">
                     <span>Users</span>
                 </a>
             </li>
+            <li th:classappend="${currentURI == '/jpnj/schools'} ? 'active'">
+                <a href="/jpnj/schools">
+                    <span>Schools</span>
+                </a>
+            </li>
+            <li th:classappend="${currentURI == '/jpnj/profile'} ? 'active'">
+                <a href="/jpnj/profile">
+                    <span>Profile</span>
+                </a>
+            </li>
+
             <li th:classappend="${currentURI == '/jpnj/settings'} ? 'active'">
                 <a href="/jpnj/settings">
                     <span>Settings</span>

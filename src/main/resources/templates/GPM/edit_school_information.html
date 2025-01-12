@@ -10,7 +10,7 @@
 <body>
 <div th:insert="fragments/GPM-sidebar :: sidebar"></div>
 <div class="main-content">
-    <h1>Hello, <span>Danial</span>. <span class="wave">👋</span></h1>
+    <h1>Hello, <span th:text="${user.username}"></span> <span class="wave">👋</span></h1>
     <h2>Your School’s Information:</h2>
     <form class="info-form" method="POST" action="/schools/save">
         <div class="info-row">
