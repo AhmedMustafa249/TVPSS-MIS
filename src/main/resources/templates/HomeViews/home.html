@@ -1,18 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TVPSS MIS</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/HomePage.css">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Home')}">
 </head>
 <body>
-<div th:insert="fragments/sidebar :: sidebar"></div>
+<div th:replace="~{fragments/sidebar :: sidebar}"></div>
+
 <div class="main-content">
-  <h1 th:text="'Hello ' + ${username} + ', Welcome to the TVPSS main website!'">Default Welcome Message</h1>
+  <h1 th:text="${message}">Welcome</h1>
   <div class="info-box">
-    <img src ="/css/images/TVPSS-Home.png" class="ContentImg">
+    <p>Demo Template Running Successfully</p>
+    <button><a th:href="@{/test}">Go to Test Page</a></button>
   </div>
 </div>
 </body>
