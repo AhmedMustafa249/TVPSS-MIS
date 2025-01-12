@@ -10,11 +10,15 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 
 @Controller
@@ -71,17 +75,35 @@ public class GPMController {
 
     }
 
-    @GetMapping("/edit_content")
-    public String editContent(Model model, HttpSession session) {
-
+    @GetMapping("/edit_content/{id}")
+    public String showEditContentPage(@PathVariable Long id, Model model, HttpSession session) {
+        Video video = videoService.getVideoById(id);
+        model.addAttribute("video", video);
         return "/GPM/EditContent";
+    }
 
+    @GetMapping("/delete_content/{id}")
+    public String deleteContent(@ModelAttribute Video video) {
+        videoService.deleteVideo(video);
+        return "redirect:/gpm/content";
+    }
+
+    @PostMapping("/content/save/{id}")
+    public String saveContent(@PathVariable Long id, @RequestParam("title") String title,@RequestParam("description") String description,@RequestParam("visibility") String visibility, @RequestParam("thumbnailUrl") String thumbnailUrl, Model model, HttpSession session) {
+        Video updatedVideo = new Video();
+        updatedVideo.setId(id);
+        updatedVideo.setTitle(title);
+        updatedVideo.setDescription(description);
+        updatedVideo.setThumbnailUrl(thumbnailUrl);
+        updatedVideo.setVisibility(visibility);
+        videoService.updateVideo(updatedVideo);
+        return "redirect:/gpm/content";
     }
 
     @PostMapping("/upload_content")
     public String uploadContent(@ModelAttribute Video video, Model model, HttpSession session) {
-        videoService.addVideo(video);
-        return "/GPM/ManageContent";
+            videoService.addVideo(video);
+            return "redirect:/gpm/content";
     }
 
     @GetMapping("/uploadContent")

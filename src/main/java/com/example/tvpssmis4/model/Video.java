@@ -1,6 +1,7 @@
 package com.example.tvpssmis4.model;
 
 import jakarta.persistence.*;
+import jakarta.persistence.Id;
 
 import java.time.LocalDateTime;
 
@@ -10,6 +11,7 @@ public class Video {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String title;
     private String description;
     private String thumbnailUrl;
@@ -68,12 +70,5 @@ public class Video {
         this.views = views;
     }
 
-    @Override
-    public String toString() {
-        return "Video [id=" + id +
-                ", title=" + title + ", description=" + description +
-                ", thumbnailUrl=" + thumbnailUrl + ", videoUrl=" + videoUrl + ", visibility=" +
-                visibility + ", uploadDate=" + uploadDate + ", views=" + views + "]";
-    }
 
 }

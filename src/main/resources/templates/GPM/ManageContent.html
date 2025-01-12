@@ -18,10 +18,15 @@
 
 
 
-          <div th:each="video : ${videos}" class="video-card" th:onclick=" 'showPreview(\'' + ${video.thumbnailUrl} + '\'. \'' + +${video.title} + '\',\'' + ${video.description} + '\')'">
+          <div th:each="video : ${videos}" class="video-card" th:onclick=" 'showPreview(\'' + ${video.thumbnailUrl} + '\'. \'' + +${video.title} + '\',\'' + ${video.description} + '\',\'' + ${video.videoUrl} + '\')'">
 
-          <img th:src="${video.thumbnailUrl}" th:alt="${video.title}"  class="video-thumbnail">
+            <img th:src="@{${video.thumbnailUrl}}" th:alt="${video.title}" class="video-thumbnail">
           <p class="video-title"></p>
+          <h1 th:text="${video.videoUrl}"></h1>
+            <div class="preview-buttons" style="padding:10px">
+              <a th:href="@{'/gpm/edit_content/' + ${video.id}}" class="edit-btn" style="text-align: center;">Edit</a>
+              <a th:href="@{'/gpm/delete_content/' + ${video.id}}" class="delete-btn" style="text-align: center;">Delete</a>
+            </div>
           </div>
 
 
@@ -34,28 +39,38 @@
       </div>
 
       <!-- Right: Preview Section -->
-      <div class="preview-section">
-        <h2>Video Preview</h2>
-        <img src="/css/images/placeholder.png" alt="Preview Image" class="preview-thumbnail">
-        <h3 class="preview-title">Select a video to preview</h3>
-        <p class="preview-description">Click on a video from the list to see more details about it.</p>
-        <div class="preview-buttons">
-          <a href="/gpm/edit_content" class="edit-btn" style="text-align: center;">Edit</a>
-          <button class="delete-btn">Delete</button>
-        </div>
-      </div>
+
     </div>
   </div>
 
-  <script>
-    function showPreview(imageSrc, title, description) {
-      console.log("Preview called with:", imageSrc, title, description);
-      document.querySelector('.preview-thumbnail').src = imageSrc;
-      document.querySelector('.preview-title').textContent = title;
-      document.querySelector('.preview-description').textContent = description;
+<script>
+  function showPreview(imageSrc, title, description, videoUrl) {
+    // Update thumbnail and text content
+    const previewThumbnail = document.querySelector('.preview-thumbnail');
+    const videoPreview = document.querySelector('#video-preview');
+
+    // Update text content
+    document.querySelector('.preview-title').textContent = title;
+    document.querySelector('.preview-description').textContent = description;
+
+    // Show video if URL is provided
+    if (videoUrl) {
+      previewThumbnail.style.display = 'none';
+      videoPreview.style.display = 'block';
+      videoPreview.src = videoUrl;
+    } else {
+      // If no video URL, show thumbnail
+      previewThumbnail.style.display = 'block';
+      videoPreview.style.display = 'none';
+      previewThumbnail.src = imageSrc;
     }
-    
-  </script>
+
+
+  }
+
+
+
+</script>
 
 </body>
 </html>
