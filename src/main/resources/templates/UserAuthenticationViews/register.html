@@ -6,6 +6,28 @@
   <title>Register Page</title>
   <link rel="stylesheet" href="/css/registerStyles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .alert {
+      padding: 20px;
+      background-color: #f44336;
+      color: white;
+    }
+
+    .closebtn {
+      margin-left: 15px;
+      color: white;
+      font-weight: bold;
+      float: right;
+      font-size: 22px;
+      line-height: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .closebtn:hover {
+      color: black;
+    }
+  </style>
 </head>
 <body>
   <div class="register-container">
@@ -19,6 +41,10 @@
       <div class="form-group">
         <label for="username">Username</label>
         <input type="text" id="username" name="username" placeholder="danialdan" required>
+      </div>
+      <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <strong>Notice!</strong> Please write GPM or JPNJ at the end of username
       </div>
       <div class="form-group">
         <label for="email">Email Address</label>
