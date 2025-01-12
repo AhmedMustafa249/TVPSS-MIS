@@ -1,4 +1,43 @@
+/* Ensure the body and html elements take up full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+}
+
 /* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background: url('images/sidebar-bg.png') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+    position: relative;
+    height: 100vh; /* Make sidebar span the full height of the viewport */
+}
+
+/* Adjust the logo section */
+.sidebar .logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+
+.sidebar .logo .logo-img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+/* Navigation Styles */
 .sidebar nav ul {
     list-style: none;
     padding: 0;
@@ -8,7 +47,6 @@
 .sidebar nav ul li {
     padding: 10px 15px;
     margin-bottom: 5px;
-    display: block;
 }
 
 .sidebar nav ul li.active,
@@ -20,38 +58,19 @@
     text-decoration: none;
     color: #fff;
     display: block;
-    font-size: 16px; /* Adjust font size for better visibility */
-    font-weight: 500;
 }
 
-.sidebar .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Add spacing between logo and text */
-    font-size: 20px;
-    font-weight: bold;
-    padding: 20px 15px;
-}
-
-.sidebar .logo img {
-    width: 40px; /* Adjust logo icon width */
-    height: 40px; /* Adjust logo icon height */
-}
-
+/* User Info Section */
 .sidebar .user-info {
     display: flex;
     align-items: center;
-    gap: 10px; /* Add spacing between profile picture and user details */
-    padding: 15px;
+    padding: 10px;
+    margin-top: auto; /* Push the user info section to the bottom */
 }
 
 .sidebar .user-info .profile-pic {
-    width: 40px; /* Adjust profile picture size */
-    height: 40px;
     border-radius: 50%;
-}
-
-.sidebar .user-info p {
-    margin: 0;
-    font-size: 14px;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
 }
