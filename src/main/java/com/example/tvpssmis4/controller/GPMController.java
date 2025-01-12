@@ -89,13 +89,14 @@ public class GPMController {
     }
 
     @PostMapping("/content/save/{id}")
-    public String saveContent(@PathVariable Long id, @RequestParam("title") String title,@RequestParam("description") String description,@RequestParam("visibility") String visibility, @RequestParam("thumbnailUrl") String thumbnailUrl, Model model, HttpSession session) {
+    public String saveContent(@PathVariable Long id, @RequestParam("title") String title,@RequestParam("description") String description,@RequestParam("visibility") String visibility,@RequestParam("videoUrl") String videoUrl, @RequestParam("thumbnailUrl") String thumbnailUrl, Model model, HttpSession session) {
         Video updatedVideo = new Video();
         updatedVideo.setId(id);
         updatedVideo.setTitle(title);
         updatedVideo.setDescription(description);
         updatedVideo.setThumbnailUrl(thumbnailUrl);
         updatedVideo.setVisibility(visibility);
+        updatedVideo.setVideoUrl(videoUrl);
         videoService.updateVideo(updatedVideo);
         return "redirect:/gpm/content";
     }
