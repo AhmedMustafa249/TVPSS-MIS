@@ -66,7 +66,7 @@ public class GPMController {
     @GetMapping("/content")
     public String content(Model model, HttpSession session) {
             List<Video> videos = videoService.getAllVideos();
-        model.addAttribute("videos", videos);
+        model.addAttribute(]]"videos", videos);
             return "/GPM/ManageContent";
 
     }

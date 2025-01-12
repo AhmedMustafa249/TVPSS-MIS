@@ -15,45 +15,22 @@
       
       <!-- Left: Video Gallery -->
       <div class="video-gallery">
-        <div class="video-card" onclick="showPreview('/css/images/video1.jpg', 'Introduction to MIS Systems', 'Learn about the basics of MIS systems in this introductory video.')">
-          <img src="/css/images/video1.jpg" alt="Video 1" class="video-thumbnail">
-          <p class="video-title">Introduction to MIS Systems</p>
-        </div>
-
-        <div class="video-card" onclick="showPreview('/css/images/video2.jpeg', 'How to Create School Reports', 'A detailed guide on how to create effective school reports.')">
-          <img src="/css/images/video2.jpeg" alt="Video 2" class="video-thumbnail">
-          <p class="video-title">How to Create School Reports</p>
-        </div>
-
-        <div class="video-card" onclick="showPreview('/css/images/video3.jpeg', 'Teacher\'s Guide to Content Upload', 'Step-by-step tutorial on uploading content for teachers.')">
-          <img src="/css/images/video3.jpeg" alt="Video 3" class="video-thumbnail">
-          <p class="video-title">Teacher's Guide to Content Upload</p>
-        </div>
-
-        <div class="video-card" onclick="showPreview('/css/images/video4.webp', 'Live Streaming Guide', 'A comprehensive guide to live streaming your school events.')">
-          <img src="/css/images/video4.webp" alt="Video 4" class="video-thumbnail">
-          <p class="video-title">Live Streaming Guide</p>
-        </div>
-        
-        <div class="video-card" onclick="showPreview('/css/images/video1.jpg', 'Introduction to MIS Systems', 'Learn about the basics of MIS systems in this introductory video.')">
-          <img src="/css/images/video1.jpg" alt="Video 1" class="video-thumbnail">
-          <p class="video-title">Introduction to MIS Systems</p>
-        </div>
-
-        <div class="video-card" onclick="showPreview('/css/images/video3.jpeg', 'Teacher\'s Guide to Content Upload', 'Step-by-step tutorial on uploading content for teachers.')">
-          <img src="/css/images/video3.jpeg" alt="Video 3" class="video-thumbnail">
-          <p class="video-title">Teacher's Guide to Content Upload</p>
-        </div>
-
-        <div class="video-card" onclick="showPreview('/css/images/video2.jpeg', 'How to Create School Reports', 'A detailed guide on how to create effective school reports.')">
-          <img src="/css/images/video2.jpeg" alt="Video 2" class="video-thumbnail">
-          <p class="video-title">How to Create School Reports</p>
-        </div>
 
 
 
-        
-        <!-- Add more video cards here -->
+          <div th:each="video : ${videos}" class="video-card" th:onclick=" 'showPreview(\'' + ${video.thumbnailUrl} + '\'. \'' + +${video.title} + '\',\'' + ${video.description} + '\')'">
+
+          <img th:src="${video.thumbnailUrl}" th:alt="${video.title}"  class="video-thumbnail">
+          <p class="video-title"></p>
+          </div>
+
+
+
+
+
+
+
+
       </div>
 
       <!-- Right: Preview Section -->
@@ -67,13 +44,12 @@
           <button class="delete-btn">Delete</button>
         </div>
       </div>
-      
     </div>
-
   </div>
 
   <script>
     function showPreview(imageSrc, title, description) {
+      console.log("Preview called with:", imageSrc, title, description);
       document.querySelector('.preview-thumbnail').src = imageSrc;
       document.querySelector('.preview-title').textContent = title;
       document.querySelector('.preview-description').textContent = description;

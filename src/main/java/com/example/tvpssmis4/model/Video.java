@@ -12,7 +12,7 @@ public class Video {
     private Long id;
     private String title;
     private String description;
-    private String thumbnailUrl;
+    private String thumbnailUrl ;
     private String videoUrl;
     private String visibility;
     private LocalDateTime uploadDate;
