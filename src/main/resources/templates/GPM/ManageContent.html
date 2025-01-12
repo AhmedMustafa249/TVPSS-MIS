@@ -3,7 +3,7 @@
 <head th:replace="~{fragments/layout :: head('Home')}">
 </head>
 <body>
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/dashboardStyles.css">
 <link rel="stylesheet" th:href="@{/css/sidebarStyles.css}">
 <div th:insert="fragments/GPM-sidebar :: sidebar"></div>
 
@@ -11,32 +11,35 @@
     <a href="/gpm/uploadContent" class="upload-btn">Upload Content</a>
     <h1>Your Uploaded Videos</h1>
     
-    <div class="content-container">
+    <div class="content-container" style="width:100%">
       
       <!-- Left: Video Gallery -->
-      <div class="video-gallery">
-
-
-
-          <div th:each="video : ${videos}" class="video-card" th:onclick=" 'showPreview(\'' + ${video.thumbnailUrl} + '\'. \'' + +${video.title} + '\',\'' + ${video.description} + '\',\'' + ${video.videoUrl} + '\')'">
-
-            <img th:src="@{${video.thumbnailUrl}}" th:alt="${video.title}" class="video-thumbnail">
-          <p class="video-title"></p>
-          <h1 th:text="${video.videoUrl}"></h1>
-            <div class="preview-buttons" style="padding:10px">
-              <a th:href="@{'/gpm/edit_content/' + ${video.id}}" class="edit-btn" style="text-align: center;">Edit</a>
-              <a th:href="@{'/gpm/delete_content/' + ${video.id}}" class="delete-btn" style="text-align: center;">Delete</a>
-            </div>
-          </div>
-
-
-
-
-
-
-
-
-      </div>
+      <table class="data-table">
+        <thead>
+        <tr>
+          <th>No.</th>
+          <th>Video ID</th>
+          <th>Video Title</th>
+          <th>Video Description</th>
+          <th>Video Url</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Dynamically Render Users -->
+        <tr th:each="video, iterStat : ${videos}" style="text-align: center">
+          <td th:text="${iterStat.count}">1</td>
+          <td th:text="${video.id}">U001</td>
+          <td th:text="${video.title}">danialdan</td>
+          <td th:text="${video.description}">JPNJ</td>
+          <td th:text="${video.videoUrl}">JPNJ</td>
+          <td>
+            <a th:href="@{'/gpm/edit_content/' + ${video.id}}" class="edit-btn">Edit</a>
+            <a th:href="@{'/gpm/delete_content/' + ${video.id}}" class="delete-btn">Delete</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
 
       <!-- Right: Preview Section -->
 
